@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
@@ -9,7 +9,8 @@ import Private from "./pages/Private";
 import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import AddTask from "./components/tasks/AddTask";
+import TaskList from "./components/tasks/TaskList";
+import NavbarII from "./components/navbar/NavBarII";
 
 class App extends Component {
   render() {
@@ -22,7 +23,8 @@ class App extends Component {
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />{" "}
             <PrivateRoute path="/private" component={Private} />
-            <AddTask />
+            <Route exact path="/navbarII" component={NavbarII} />
+            <Route exact path="/tasks" component={TaskList} />
           </Switch>
         </div>
       </AuthProvider>
