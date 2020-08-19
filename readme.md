@@ -2,7 +2,7 @@
 
 ## Description
 
-**OhmyHome ** allows you to have tasks under control helping you to organize, manage and distribute them. OhmyHome is perfect for people living alone and also for multi-member households. [Ironhack] (https://www.ironhack.com/) (WebDev-FT-062020)
+**OhmyHome ** allows you to have tasks under control helping you to organize, manage and distribute them. OhmyHome is perfect for people living alone and also for multi-member households. 
 
 ## User Stories
 
@@ -93,7 +93,8 @@ List of other features outside of the MVPs scope
 Group model
 
 ```js
-  groupName: { type: String, required: true },
+{  
+	groupName: { type: String, required: true },
   users: [{type : Schema.Types.ObjectId, ref: 'User'}]
   listItems: [String],
   tasks:[
@@ -102,8 +103,8 @@ Group model
     state: {type: String, enum:["pending", "complete"]}
     user_id: {type : Schema.Types.ObjectId, ref: 'User'}
   }
- ],
-}
+ ]
+},
 ```
 
 User model
@@ -141,22 +142,22 @@ Message Model
 
 ## API Endpoints (back-end routes)
 
-| URL    | HTTP verb            | Request body             | Action                                                       | Success status | Error Status |
-| ------ | -------------------- | ------------------------ | ------------------------------------------------------------ | -------------- | ------------ |
-| POST   | `/auth/signup`       | {username,password}      | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session | 201            | 404          |
-| POST   | `/auth/login`        | {username,password}      | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session | 200            | 401          |
-| POST   | `/auth/logout`       | {username,password}      | Renders the signup form and creates user in the DB.          | 204            | 400          |
-| GET    | `/auth/private`      | Renders login form view. | Check if user is logged in using the helper function         | 200            | 404          |
-| GET    | `/api/tasks`         | (empty)                  | Returns all the tasks                                        |                |              |
-| POST   | `/api/tasks`         | (empty)                  | Adds a new task                                              |                |              |
-| GET    | `/api/tasks/:id`     |                          | Returns the specified task                                   |                |              |
-| PUT    | `/api/task/:id`      | JSON                     | Edits the specified task                                     |                |              |
-| DELETE | `/api/task/:id`      | (empty)                  | Delete the specified task                                    |                |              |
-| GET    | `/api/listItems`     | (empty)                  | Returns the list Items                                       |                |              |
-| POST   | `/api/listItems`     | (empty)                  | Adds a new item                                              |                |              |
-| GET    | `/api/listItems/:id` |                          | Returns the specified item                                   |                |              |
-| PUT    | `/api/listItems/:id` | JSON                     | Edits the specified item                                     |                |              |
-| DELETE | `/api/listItems/:id` | (empty)                  | Delete the specified item                                    |                |              |
+| URL    | HTTP verb            | Request body        | Action                                                       | Success status | Error Status |
+| ------ | -------------------- | ------------------- | ------------------------------------------------------------ | -------------- | ------------ |
+| POST   | `/auth/signup`       | {username,password} | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session | 201            | 404          |
+| POST   | `/auth/login`        | {username,password} | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session | 200            | 401          |
+| POST   | `/auth/logout`       | {username,password} | Renders the signup form and creates user in the DB.          | 204            | 400          |
+| GET    | `/auth/me`           | Saved session       | Check if user is logged in and return profile page           | 200            | 404          |
+| GET    | `/api/tasks`         | (empty)             | Returns all the tasks                                        |                |              |
+| POST   | `/api/tasks`         | (empty)             | Adds a new task                                              |                |              |
+| GET    | `/api/tasks/:id`     |                     | Returns the specified task                                   |                |              |
+| PUT    | `/api/task/:id`      | JSON                | Edits the specified task                                     |                |              |
+| DELETE | `/api/task/:id`      | (empty)             | Delete the specified task                                    |                |              |
+| GET    | `/api/listItems`     | (empty)             | Returns the list Items                                       |                |              |
+| POST   | `/api/listItems`     | (empty)             | Adds a new item                                              |                |              |
+| GET    | `/api/listItems/:id` |                     | Returns the specified item                                   |                |              |
+| PUT    | `/api/listItems/:id` | JSON                | Edits the specified item                                     |                |              |
+| DELETE | `/api/listItems/:id` | (empty)             | Delete the specified item                                    |                |              |
 
 
 
