@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider"; //	<-- UPDATE HERE
+import Button from "react-bootstrap/Button";
 
 class Botones extends Component {
   render() {
@@ -11,30 +12,32 @@ class Botones extends Component {
           <>
             {/* <p className="navbar-user">username: {user.username}</p>{" "} */}
             {/* 	<-- UPDATE HERE     */}
-            <button className="navbar-button" onClick={logout}>
+            <Button variant="warning" onClick={logout}>
               Logout
-            </button>{" "}
-            <button>
+            </Button>{" "}
+            <Button variant="warning">
               <Link to="/tasks" style={{ textDecoration: "none" }}>
                 Tasks
               </Link>
-            </button>
-            <button>
+            </Button>
+            <Button variant="warning">
               <Link to="/profile" style={{ textDecoration: "none" }}>
                 Profile
               </Link>
-            </button>
+            </Button>
             {/* 	<-- UPDATE HERE     */}
           </>
         ) : (
           <>
-            <Link to="/signup">
-              <button className="navbar-button">Sign up</button>
-            </Link>
-            <Link to="/login">
-              <button className="navbar-button">Login</button>
-            </Link>
-            <br />
+            <div className="auth-buttons">
+              <Link to="/signup">
+                <Button variant="warning">Sign up</Button>
+              </Link>
+              <Link to="/login">
+                <Button variant="warning">Login</Button>
+              </Link>
+              <br />
+            </div>
           </>
         )}
       </nav>

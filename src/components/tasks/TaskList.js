@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import AddTask from "./AddTask";
 import RandomButton from "./../random/RandomButton";
+import Button from "react-bootstrap/Button";
 
 class TaskList extends Component {
   constructor(props) {
@@ -40,14 +41,24 @@ class TaskList extends Component {
         <div>
           <AddTask getData={() => this.getAllTasks()} />
         </div>
-        <div>
+        <div class="container-allTasks">
+          <h5>Group Tasks:</h5>
           {this.state.listOfTasks.map((task) => {
             return (
               <div key={task._id}>
-                <p>{task.title}</p>
-                <button onClick={() => this.deleteTask(task._id)}>
-                  Delete
-                </button>
+                <div className="container-delete">
+                  <div className="task-list">
+                    <p>{task.title}</p>
+                  </div>
+                  <div className="deleteTask-button">
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => this.deleteTask(task._id)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                </div>
                 <RandomButton id={task._id} />
               </div>
             );

@@ -1,11 +1,10 @@
-.App {
-  text-align: center;
-}
+/* body {
+  background-color: yellow;
+} */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* .container-delete {
+  border: 2px solid red;
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class AddTask extends Component {
   constructor(props) {
@@ -26,7 +28,24 @@ class AddTask extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <Form onSubmit={this.handleFormSubmit}>
+          <h5>Add a task</h5>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </Form.Group>
+
+          <Button variant="outline-warning" type="submit" value="submit">
+            Create
+          </Button>
+        </Form>
+
+        {/* <form onSubmit={this.handleFormSubmit}>
           <h4>Add a task</h4>
           <label>Title:</label>
           <input
@@ -37,7 +56,7 @@ class AddTask extends Component {
           />
 
           <input type="submit" value="Submit" />
-        </form>
+        </form> */}
       </div>
     );
   }
