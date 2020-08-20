@@ -24,19 +24,21 @@ class Login extends Component {
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+          {/* <label>Username:</label> */}
           <input
             type="text"
             name="username"
             value={username}
+            placeholder="username"
             onChange={this.handleChange}
           />
 
-          <label>Password:</label>
+          {/* <label>Password:</label> */}
           <input
             type="password"
             name="password"
             value={password}
+            placeholder="Set password"
             onChange={this.handleChange}
           />
 

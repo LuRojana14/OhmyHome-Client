@@ -44,7 +44,7 @@ class EditTask extends Component {
         <hr />
         <h3>Edit task</h3>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Title:</label>
+          <label>HolaTitle:</label>
           <input
             type="text"
             name="title"

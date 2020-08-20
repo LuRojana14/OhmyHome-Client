@@ -7,9 +7,6 @@ class Navbar extends Component {
     const { user, logout, isLoggedin } = this.props;
     return (
       <nav className="navbar">
-        <Link to={"/"} id="home-btn">
-          <h4>Home</h4>
-        </Link>
         {isLoggedin ? (
           <>
             <p className="navbar-user">username: {user.username}</p>{" "}
@@ -21,13 +18,13 @@ class Navbar extends Component {
           </>
         ) : (
           <>
+            <Link to="/signup">
+              <button className="navbar-button">Sign up</button>
+            </Link>
             <Link to="/login">
               <button className="navbar-button">Login</button>
             </Link>
             <br />
-            <Link to="/signup">
-              <button className="navbar-button">Sign Up</button>
-            </Link>
           </>
         )}
       </nav>

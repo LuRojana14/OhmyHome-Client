@@ -11,7 +11,7 @@ class AddItem extends Component {
     event.preventDefault();
     const title = this.state.title;
     axios
-      .post("http://localhost:4000/api/tasks", { title })
+      .post("http://localhost:4000/api/items", { title })
       .then(() => {
         this.setState({ title: "" });
       })
