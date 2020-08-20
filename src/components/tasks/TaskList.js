@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import AddTask from "./AddTask";
 import RandomButton from "./../random/RandomButton";
 
@@ -47,7 +46,7 @@ class TaskList extends Component {
               <div key={task._id}>
                 <p>{task.title}</p>
                 <button onClick={() => this.deleteTask(task._id)}>
-                  Delete task
+                  Delete
                 </button>
                 <RandomButton id={task._id} />
               </div>
@@ -57,9 +56,6 @@ class TaskList extends Component {
         {/* <div
           <div>The task was won by:{this.props.random}</div>
         </div> */}
-        <div>
-          <Link to={"/profile"}>Go to profile</Link>
-        </div>
       </div>
     );
   }

@@ -3,27 +3,24 @@ import "./App.css";
 import { Switch } from "react-router-dom";
 import AuthProvider from "./lib/AuthProvider";
 
-// import Navbar from "./components/Navbar";
+import Botones from "./components/Botones";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Private from "./pages/Private";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import TaskList from "./components/tasks/TaskList";
-import NavbarII from "./components/navbar/NavBarII";
 import Profile from "./components/profile/Profile";
-// import Botones from "./components/Botones";
 
 class App extends Component {
   render() {
     return (
       <AuthProvider>
         <div className="container">
-          {/* <Navbar /> */}
-          <NavbarII />
+          <Botones />
+          {/* <NavbarII /> */}
 
           <Switch>
-            {/* <Botones /> */}
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
             <PrivateRoute path="/private" component={Private} />

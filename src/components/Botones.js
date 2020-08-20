@@ -2,18 +2,28 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider"; //	<-- UPDATE HERE
 
-class Navbar extends Component {
+class Botones extends Component {
   render() {
-    const { user, logout, isLoggedin } = this.props;
+    const { logout, isLoggedin } = this.props;
     return (
       <nav className="navbar">
         {isLoggedin ? (
           <>
-            <p className="navbar-user">username: {user.username}</p>{" "}
+            {/* <p className="navbar-user">username: {user.username}</p>{" "} */}
             {/* 	<-- UPDATE HERE     */}
             <button className="navbar-button" onClick={logout}>
               Logout
             </button>{" "}
+            <button>
+              <Link to="/tasks" style={{ textDecoration: "none" }}>
+                Tasks
+              </Link>
+            </button>
+            <button>
+              <Link to="/profile" style={{ textDecoration: "none" }}>
+                Profile
+              </Link>
+            </button>
             {/* 	<-- UPDATE HERE     */}
           </>
         ) : (
@@ -32,4 +42,4 @@ class Navbar extends Component {
   }
 }
 
-export default withAuth(Navbar); //	<-- UPDATE HERE
+export default withAuth(Botones); //	<-- UPDATE HERE

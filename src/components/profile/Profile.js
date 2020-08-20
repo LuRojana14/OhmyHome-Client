@@ -28,6 +28,7 @@ class Profile extends Component {
     return (
       <div>
         <p>Hello {this.state.ProfileOne.username}</p>
+        <p>These are your tasks:</p>
       </div>
     );
   }

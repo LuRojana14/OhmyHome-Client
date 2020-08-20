@@ -27,7 +27,7 @@ class AddTask extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <h4>Crea tu task</h4>
+          <h4>Add a task</h4>
           <label>Title:</label>
           <input
             type="text"
