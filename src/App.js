@@ -12,9 +12,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import TaskList from "./components/tasks/TaskList";
 import Profile from "./components/profile/Profile";
 // import Home from "./pages/Home";
-import "bootstrap/dist/css/bootstrap.min.css";
 // import { Helmet } from "react-helmet";
 // import { BrowserRouter as Router } from "react-router-dom"; // <== !!!
+import "bootstrap/dist/css/bootstrap.min.css";
 import Group from "./components/group/Group";
 
 class App extends Component {

@@ -31,24 +31,24 @@ class Botones extends Component {
           <>
             <div className="containerauth-buttons">
               <div className="auth-buttons">
-                <div className="signup-button">
+                {/* <div className="signup-button">
                   <Link to="/signup">
                     <Button variant="warning">Sign up</Button>
-                  </Link>
-                </div>
-                <div className="login-button">
-                  <Link to="/login">
-                    <Button variant="warning">Login</Button>
-                  </Link>
-                </div>
-                <div className="group-button">
-                  <Link to="/group/creategroup">
-                    <Button variant="warning">Create a Group</Button>
-                  </Link>
-                </div>
-                <br />
+                  </Link> */}
               </div>
+              <div className="login-button">
+                <Link to="/login">
+                  <Button variant="warning">Login</Button>
+                </Link>
+              </div>
+              <div className="group-button">
+                <Link to="/group/creategroup">
+                  <Button variant="warning">Create a Group</Button>
+                </Link>
+              </div>
+              <br />
             </div>
+            {/* </div> */}
           </>
         )}
       </nav>
@@ -56,4 +56,4 @@ class Botones extends Component {
   }
 }
 
-export default withAuth(Botones); //	<-- UPDATE HERE
+export default withAuth(Botones);
