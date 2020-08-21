@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Private from "./pages/Private";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import TaskList from "./components/tasks/TaskList";
+import TaskPage from "./components/tasks/TaskPage";
 import Profile from "./components/profile/Profile";
 // import Home from "./pages/Home";
 // import { Helmet } from "react-helmet";
@@ -29,7 +29,7 @@ class App extends Component {
             <AnonRoute path="/login" component={Login} />
             <AnonRoute path="/group" component={Group} />
             <PrivateRoute path="/private" component={Private} />
-            <PrivateRoute exact path="/tasks" component={TaskList} />
+            <PrivateRoute exact path="/tasks" component={TaskPage} />
             <PrivateRoute exact path="/profile" component={Profile} />
           </Switch>
         </AuthProvider>

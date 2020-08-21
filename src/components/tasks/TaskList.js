@@ -1,58 +1,14 @@
 import React, { Component } from "react";
-import axios from "axios";
-import AddTask from "./AddTask";
 import RandomButton from "./../random/RandomButton";
 import Button from "react-bootstrap/Button";
-import { withAuth } from "../../lib/AuthProvider"; // <-- UPDATE HERE
 
 class TaskList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { listOfTasks: [], users: [] };
-  }
-
-  //BUSCA TODAS LAS TASKS DE LA RUTA /tasks DEL BACK
-  getAllTasks = () => {
-    const groupName = this.props.user.namegroup;
-    console.log(this.props, "hola");
-    //authprovider
-
-    axios
-      .get(`http://localhost:4000/group/${groupName}`)
-      .then((responseFromApi) => {
-        console.log(responseFromApi.data, "hola");
-        this.setState({
-          listOfTasks: responseFromApi.data,
-          users: responseFromApi.data,
-        });
-      });
-  };
-
-  componentDidMount() {
-    this.getAllTasks();
-  }
-
-  // DELETE TASK:
-  deleteTask = (taskId) => {
-    axios
-      .delete(`http://localhost:4000/api/tasks/${taskId}`)
-      .then(() => {
-        this.getAllTasks();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   render() {
     return (
       <div>
-        <div>
-          <AddTask getData={() => this.getAllTasks()} />
-        </div>
         <div className="container-allTasks">
           <h5>Group Tasks:</h5>
-          {this.state.listOfTasks.map((task) => {
+          {this.props.listOfTasks.map((task) => {
             return (
               <div key={task._id}>
                 <div className="container-delete">
@@ -68,7 +24,7 @@ class TaskList extends Component {
                   <div className="deleteTask-button">
                     <Button
                       variant="outline-secondary"
-                      onClick={() => this.deleteTask(task._id)}
+                      onClick={() => this.props.deleteTask(task._id)}
                     >
                       Delete
                     </Button>
@@ -86,4 +42,4 @@ class TaskList extends Component {
   }
 }
 
-export default withAuth(TaskList);
+export default TaskList;

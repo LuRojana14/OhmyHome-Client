@@ -12,12 +12,8 @@ class AddTask extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const title = this.state.title;
-    axios
-      .post("http://localhost:4000/api/tasks", { title })
-      .then(() => {
-        this.setState({ title: "" });
-      })
-      .catch((error) => console.log(error));
+    this.props.addTask(title);
+    this.setState({ title: "" });
   };
 
   handleChange = (event) => {
