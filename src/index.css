@@ -22,7 +22,12 @@ code {
 
 .deleteTask-button {
   /* border: 2px solid violet; */
-  width: 20%;
+  width: 10%;
+}
+
+.random-button {
+  /* border: 2px solid blue; */
+  width: 10%;
 }
 
 .task-list {
@@ -33,13 +38,36 @@ code {
 
 .container-allTasks {
   /* border: 2px solid blue; */
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
-.auth-buttons {
-  border: 2px solid blue;
+.containerauth-buttons {
+  /* border: 2px solid blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+
+.auth-buttons {
+  /* border: 2px solid pink; */
+  width: 9%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+}
+
+.signup-button {
+  /* border: 2px solid red; */
+  display: flex;
+  width: 100%;
   justify-content: center;
+}
+
+.login-button {
+  /* border: 2px solid greenyellow; */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8%;
 }

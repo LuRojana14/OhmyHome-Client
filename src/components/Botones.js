@@ -29,14 +29,20 @@ class Botones extends Component {
           </>
         ) : (
           <>
-            <div className="auth-buttons">
-              <Link to="/signup">
-                <Button variant="warning">Sign up</Button>
-              </Link>
-              <Link to="/login">
-                <Button variant="warning">Login</Button>
-              </Link>
-              <br />
+            <div className="containerauth-buttons">
+              <div className="auth-buttons">
+                <div className="signup-button">
+                  <Link to="/signup">
+                    <Button variant="warning">Sign up</Button>
+                  </Link>
+                </div>
+                <div className="login-button">
+                  <Link to="/login">
+                    <Button variant="warning">Login</Button>
+                  </Link>
+                </div>
+                <br />
+              </div>
             </div>
           </>
         )}

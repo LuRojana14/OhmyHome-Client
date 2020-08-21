@@ -50,6 +50,12 @@ class TaskList extends Component {
                   <div className="task-list">
                     <p>{task.title}</p>
                   </div>
+                  <div className="random-button">
+                    <Button variant="outline-secondary">
+                      <RandomButton id={task._id} />
+                      Random
+                    </Button>
+                  </div>
                   <div className="deleteTask-button">
                     <Button
                       variant="outline-secondary"
@@ -59,7 +65,6 @@ class TaskList extends Component {
                     </Button>
                   </div>
                 </div>
-                <RandomButton id={task._id} />
               </div>
             );
           })}
