@@ -50,8 +50,10 @@ class Group extends Component {
             value={this.state.password}
             onChange={(e) => this.handleChange(e)}
           />
-          {this.state.isClicked ? <Form1 /> : null}
-          <input onClick={this.showForm} type="submit" value="Submit" />
+          {this.state.isClicked ? (
+            <Form1 groupName={this.state.groupName} />
+          ) : null}
+          <input onClick={this.showForm} value="Next" />
         </form>
       </div>
     );

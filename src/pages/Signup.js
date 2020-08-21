@@ -4,13 +4,20 @@ import { withAuth } from "../lib/AuthProvider";
 // import Button from "react-bootstrap/Button";
 
 class Signup extends Component {
-  state = { username: "", password: "" };
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      namegroup: this.props.groupName,
+    };
+  }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { username, password, namegroup } = this.state;
     // console.log("Signup -> form submit", { username, password });
-    this.props.signup({ username, password }); //	<-- UPDATE HERE
+    this.props.signup({ username, password, namegroup }); //	<-- UPDATE HERE
   };
 
   handleChange = (event) => {
@@ -20,6 +27,7 @@ class Signup extends Component {
 
   render() {
     const { username, password } = this.state;
+
     return (
       <div>
         <h2>Signup</h2>

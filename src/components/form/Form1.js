@@ -5,8 +5,9 @@ import React, { Component } from "react";
 import Signup from "./../../pages/Signup";
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = { cleaners: {}, isClicked: false };
   }
 
@@ -20,8 +21,10 @@ class Form extends Component {
         <form>
           <label>How many cleaners?</label>
           <input type="number" name="text" />
-          {this.state.isClicked ? <Signup /> : null}
-          <input onClick={this.showForm} type="submit" value="Submit" />
+          {this.state.isClicked ? (
+            <Signup groupName={this.props.groupName} />
+          ) : null}
+          <input onClick={this.showForm} value="Next" />
         </form>
       </div>
     );
