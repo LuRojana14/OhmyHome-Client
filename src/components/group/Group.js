@@ -51,11 +51,7 @@ class Group extends Component {
             onChange={(e) => this.handleChange(e)}
           />
           {this.state.isClicked ? <Form1 /> : null}
-          {/* <Button variant="outline-warning"> */}
-          {/* <button onClick={this.showForm}>Submit</button> */}
-
           <input onClick={this.showForm} type="submit" value="Submit" />
-          {/* </Button> */}
         </form>
       </div>
     );
