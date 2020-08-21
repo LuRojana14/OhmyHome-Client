@@ -41,7 +41,7 @@ class TaskList extends Component {
         <div>
           <AddTask getData={() => this.getAllTasks()} />
         </div>
-        <div class="container-allTasks">
+        <div className="container-allTasks">
           <h5>Group Tasks:</h5>
           {this.state.listOfTasks.map((task) => {
             return (
