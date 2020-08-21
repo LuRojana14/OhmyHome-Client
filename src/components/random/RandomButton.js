@@ -32,8 +32,9 @@ class RandomButton extends Component {
   RandomUser() {
     //aca hago la llamada de axios con un get desde groupRoute para tener todos los perfiles
     // y luego hacer un random de todos los perfiles para que se asigne la task y mandarle esta info al back
+    //todos los usuarios pero de un mismo grupo
     axios
-      .get(`http://localhost:4000/group/allusers`, { withCredentials: true })
+      .get(`http://localhost:4000/group/:groupName`, { withCredentials: true })
 
       .then((responseFromApi) => {
         this.setState({

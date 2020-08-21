@@ -54,7 +54,7 @@ class TaskList extends Component {
                   </div>
                   <div className="random-button">
                     <Button variant="outline-secondary">
-                      <RandomButton id={task._id} />
+                      <RandomButton onClick={() => this.RandomUser(task._id)} />
                       Random
                     </Button>
                   </div>
