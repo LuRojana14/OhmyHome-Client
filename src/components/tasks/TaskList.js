@@ -3,7 +3,6 @@ import axios from "axios";
 import AddTask from "./AddTask";
 import RandomButton from "./../random/RandomButton";
 import Button from "react-bootstrap/Button";
-import { withAuth } from "../../lib/AuthProvider"; //	<-- UPDATE HERE
 
 class TaskList extends Component {
   constructor(props) {
@@ -13,19 +12,13 @@ class TaskList extends Component {
 
   //BUSCA TODAS LAS TASKS DE LA RUTA /tasks DEL BACK
   getAllTasks = () => {
-    const groupName = this.props.user.namegroup;
-
-    //authprovider
-
-    axios
-      .get(`http://localhost:4000/group/${groupName}`)
-      .then((responseFromApi) => {
-        console.log(responseFromApi.data);
-        this.setState({
-          listOfTasks: responseFromApi.data,
-          users: responseFromApi.data,
-        });
+    axios.get(`http://localhost:4000/api/tasks`).then((responseFromApi) => {
+      console.log(responseFromApi.data);
+      this.setState({
+        listOfTasks: responseFromApi.data,
+        users: responseFromApi.data,
       });
+    });
   };
 
   componentDidMount() {
@@ -86,4 +79,4 @@ class TaskList extends Component {
   }
 }
 
-export default withAuth(TaskList);
+export default TaskList;
