@@ -13,24 +13,27 @@ import TaskList from "./components/tasks/TaskList";
 import Profile from "./components/profile/Profile";
 // import Home from "./pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+// import { Helmet } from "react-helmet";
+// import { BrowserRouter as Router } from "react-router-dom"; // <== !!!
+import Group from "./components/group/Group";
 
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
-        <div className="container">
+      <div className="container">
+        <AuthProvider>
           <Botones />
-          {/* <Home /> */}
 
           <Switch>
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
+            <AnonRoute path="/group" component={Group} />
             <PrivateRoute path="/private" component={Private} />
             <PrivateRoute exact path="/tasks" component={TaskList} />
             <PrivateRoute exact path="/profile" component={Profile} />
           </Switch>
-        </div>
-      </AuthProvider>
+        </AuthProvider>
+      </div>
     );
   }
 }

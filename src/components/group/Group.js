@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button";
+import Form1 from "./../form/Form1";
 
 class Group extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { groupName: "" };
+  constructor() {
+    super();
+    this.state = { groupName: "", isClicked: false };
   }
+
+  showForm = () => {
+    this.setState({ isClicked: !this.state.isClicked });
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -28,31 +33,30 @@ class Group extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleFormSubmit}>
-          <h5>Create your group</h5>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Group Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              value={this.state.groupName}
-              onChange={(e) => this.handleChange(e)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Password Group</Form.Label>
-            <Form.Control
-              type="password"
-              name="title"
-              value={this.state.password}
-              onChange={(e) => this.handleChange(e)}
-            />
-          </Form.Group>
+        <form onSubmit={this.handleFormSubmit}>
+          <h5>Create group</h5>
+          <label>Group Name:</label>
+          <input
+            type="text"
+            name="groupName"
+            value={this.state.groupName}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-          <Button variant="outline-warning" type="submit" value="submit">
-            Create
-          </Button>
-        </Form>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={(e) => this.handleChange(e)}
+          />
+          {this.state.isClicked ? <Form1 /> : null}
+          {/* <Button variant="outline-warning"> */}
+          {/* <button onClick={this.showForm}>Submit</button> */}
+
+          <input onClick={this.showForm} type="submit" value="Submit" />
+          {/* </Button> */}
+        </form>
       </div>
     );
   }

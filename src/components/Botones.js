@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withAuth } from "../lib/AuthProvider"; //	<-- UPDATE HERE
 import Button from "react-bootstrap/Button";
+import { withAuth } from "../lib/AuthProvider"; //	<-- UPDATE HERE
 
 class Botones extends Component {
   render() {
@@ -39,6 +39,11 @@ class Botones extends Component {
                 <div className="login-button">
                   <Link to="/login">
                     <Button variant="warning">Login</Button>
+                  </Link>
+                </div>
+                <div className="group-button">
+                  <Link to="/group/creategroup">
+                    <Button variant="warning">Create a Group</Button>
                   </Link>
                 </div>
                 <br />

@@ -71,3 +71,19 @@ code {
   justify-content: center;
   margin-top: 8%;
 }
+
+.group-button {
+  /* border: 2px solid greenyellow; */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8%;
+}
+
+/* .login {
+  background-color: pink;
+} */
+
+/* .home {
+  background-color: yellow;
+} */

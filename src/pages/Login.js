@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider"; //	<-- UPDATE HERE
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -22,6 +23,9 @@ class Login extends Component {
 
     return (
       <div>
+        <Helmet>
+          <body className="login" />
+        </Helmet>
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>

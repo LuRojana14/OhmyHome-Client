@@ -1,48 +1,29 @@
+import Dropdown from "react-bootstrap/Dropdown";
+
 import React, { Component } from "react";
 import axios from "axios";
 import AddTask from "./AddTask";
 import RandomButton from "./../random/RandomButton";
 import Button from "react-bootstrap/Button";
-import { withAuth } from "../../lib/AuthProvider"; //	<-- UPDATE HERE
 
-class TaskList extends Component {
+class SelectTask extends Component {
   constructor(props) {
     super(props);
-    this.state = { listOfTasks: [], users: [] };
+    this.state = { listOfTasks: [] };
   }
 
   //BUSCA TODAS LAS TASKS DE LA RUTA /tasks DEL BACK
   getAllTasks = () => {
-    const groupName = this.props.user.namegroup;
-
-    //authprovider
-
-    axios
-      .get(`http://localhost:4000/group/${groupName}`)
-      .then((responseFromApi) => {
-        console.log(responseFromApi.data);
-        this.setState({
-          listOfTasks: responseFromApi.data,
-          users: responseFromApi.data,
-        });
+    axios.get(`http://localhost:4000/api/tasks`).then((responseFromApi) => {
+      this.setState({
+        listOfTasks: responseFromApi.data,
       });
+    });
   };
 
   componentDidMount() {
     this.getAllTasks();
   }
-
-  // DELETE TASK:
-  deleteTask = (taskId) => {
-    axios
-      .delete(`http://localhost:4000/api/tasks/${taskId}`)
-      .then(() => {
-        this.getAllTasks();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   render() {
     return (
@@ -86,4 +67,4 @@ class TaskList extends Component {
   }
 }
 
-export default withAuth(TaskList);
+export default SelectTask;
