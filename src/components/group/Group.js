@@ -5,9 +5,9 @@ import axios from "axios";
 import Form1 from "./../form/Form1";
 
 class Group extends Component {
-  constructor() {
-    super();
-    this.state = { groupName: "", isClicked: false };
+  constructor(props) {
+    super(props);
+    this.state = { groupName: this.props.namegroup, isClicked: false };
   }
 
   showForm = () => {
@@ -16,7 +16,7 @@ class Group extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const groupName = this.state.groupName;
+    const groupName = this.props.namegroup;
     axios
       .post("http://localhost:4000/group/creategroup", { groupName })
       .then(() => {

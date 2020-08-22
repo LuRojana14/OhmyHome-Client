@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import Button from "react-bootstrap/Button";
 import Signup from "./../../pages/Signup";
 
-class Form extends Component {
+class Form1 extends Component {
   constructor(props) {
     super(props);
 
@@ -31,4 +31,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default Form1;

@@ -42,7 +42,7 @@ class Botones extends Component {
                 </Link>
               </div>
               <div className="group-button">
-                <Link to="/group/creategroup">
+                <Link to="/auth/signup">
                   <Button variant="warning">Create a Group</Button>
                 </Link>
               </div>
