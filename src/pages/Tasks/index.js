@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import TaskList from "./TaskList";
 import AddTask from "./AddTask";
-import { withAuth } from "../../utils/AuthProvider";
+// import { withAuth } from "../../utils/AuthProvider";
 
 class TaskPage extends Component {
   constructor(props) {
@@ -69,4 +69,4 @@ class TaskPage extends Component {
   }
 }
 
-export const TaskPage = withAuth(TaskPage);
+export default TaskPage;
