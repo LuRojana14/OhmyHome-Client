@@ -1,5 +1,6 @@
-export * from './Signup'
-export * from './Login'
-export * from './Home'
-export * from './NotFound'
-
+export * from "./Signup";
+export * from "./Login";
+export * from "./Home";
+export * from "./TaskPage";
+export * from "./Profile";
+export * from "./NotFound";

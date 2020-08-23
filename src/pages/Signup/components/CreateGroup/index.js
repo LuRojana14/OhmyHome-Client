@@ -1,8 +1,5 @@
-
 import React, { Component } from "react";
 import axios from "axios";
-
-
 
 export class CreateGroup extends Component {
   constructor() {
@@ -26,23 +23,20 @@ export class CreateGroup extends Component {
     this.setState({ [name]: value });
   };
 
-  render () {
+  render() {
     return (
       <div>
         <form>
           {/* PREGUNTAR LOS VALUES */}
-          <input type="text" name="group" value="" placeholder="Group-Name"></input>
+          <input
+            type="text"
+            name="group"
+            value=""
+            placeholder="Group-Name"
+          ></input>
           <input type="submit" name="" value="next"></input>
         </form>
       </div>
     );
   }
 }
-
-
-
-
-
-
-
-
