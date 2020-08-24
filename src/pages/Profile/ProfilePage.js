@@ -53,6 +53,7 @@ class ProfilePage extends Component {
                   }}
                 >
                   {task.title}
+                  <button>+</button>
                 </span>
               );
             })}
