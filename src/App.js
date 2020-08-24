@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { Route, Switch, BrowserRouter as ReactRouter } from "react-router-dom";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import HomePage from "./pages/Home/HomePage";
 import SignUpPage from "./pages/Signup/SignupPage";
 import LoginPage from "./pages/Login/LoginPage";
 import GroupSetupPage from "./pages/Signup/GroupSetupPage";
@@ -32,7 +33,7 @@ function App() {
           <Route path={"/group-setup"} component={GroupSetupPage} />
           <Route path={"/tasks"} component={TasksPage} />
           <Route path={"/profile"} component={ProfilePage} />
-          <Route path={"/"} component={TasksPage} />
+          <Route path={"/"} component={HomePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </ReactRouter>
