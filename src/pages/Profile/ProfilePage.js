@@ -50,7 +50,7 @@ class ProfilePage extends Component {
               <p>Hello {profile.username}</p>
             </Card.Title>
             <Card.Text>
-              <span>These are your tasks:</span>
+              <span>These are your tasks!:</span>
               <br />
               {profile.tasks.map((task) => {
                 return (
