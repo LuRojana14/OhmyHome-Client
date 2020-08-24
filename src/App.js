@@ -1,35 +1,43 @@
-import React, { Component } from "react";
-import { Switch } from "react-router-dom";
-// import { BrowserRouter as Router } from "react-router-dom"; // <== !!!
-import AuthProvider from "./lib/AuthProvider";
-import { Router } from "./router";
+import React from "react";
+import AuthProvider from "./utils/AuthProvider";
+import { Helmet } from "react-helmet";
+import axios from "axios";
+import { Route, Switch, BrowserRouter as ReactRouter } from "react-router-dom";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import SignUpPage from "./pages/Signup/SignupPage";
+import LoginPage from "./pages/Login/LoginPage";
+import GroupSetupPage from "./pages/Signup/GroupSetupPage";
+import TasksPage from "./pages/Tasks/TasksPage";
+import Header from "./components/Header";
+import "./App.css";
+import ProfilePage from "./pages/Profile/ProfilePage";
 
-// import Botones from "./components/Botones";
-// import Signup from "./pages/Signup";
-// import Login from "./pages/Login";
-// import Private from "./pages/Private";
-// import AnonRoute from "./components/AnonRoute";
-// import PrivateRoute from "./components/PrivateRoute";
-// import TaskPage from "./components/tasks/TaskPage";
-// import Profile from "./components/profile/Profile";
-// import Home from "./pages/Home";
-// import { Helmet } from "react-helmet";
-// import { BrowserRouter as Router } from "react-router-dom"; // <== !!!
-import "bootstrap/dist/css/bootstrap.min.css";
-// import Group from "./components/group/Group";
+axios.defaults.withCredentials = true;
 
-// Router() === <Router/>
-
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <AuthProvider>
-          <Router />
-        </AuthProvider>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <AuthProvider>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous"
+        />
+      </Helmet>
+      <ReactRouter>
+        <Switch>
+          <Route path={"/signup"} component={SignUpPage} />
+          <Route path={"/login"} component={LoginPage} />
+          <Route path={"/group-setup"} component={GroupSetupPage} />
+          <Route path={"/tasks"} component={TasksPage} />
+          <Route path={"/profile"} component={ProfilePage} />
+          <Route path={"/"} component={TasksPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </ReactRouter>
+    </AuthProvider>
+  );
 }
 
 export default App;

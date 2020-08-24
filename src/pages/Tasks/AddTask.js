@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -31,28 +30,16 @@ class AddTask extends Component {
             <Form.Control
               type="text"
               name="title"
+              required
               value={this.state.title}
               onChange={(e) => this.handleChange(e)}
             />
           </Form.Group>
 
-          <Button variant="outline-warning" type="submit" value="submit">
+          <Button variant="outline-primary" type="submit" value="submit">
             Create
           </Button>
         </Form>
-
-        {/* <form onSubmit={this.handleFormSubmit}>
-          <h4>Add a task</h4>
-          <label>Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={(e) => this.handleChange(e)}
-          />
-
-          <input type="submit" value="Submit" />
-        </form> */}
       </div>
     );
   }

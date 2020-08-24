@@ -1,10 +1,25 @@
-/* body {
-  background-color: yellow;
-} */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* .container-delete {
-  border: 2px solid red;
-} */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -34,4 +49,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  transition: background-color 1000ms linear;
+}
+
+.signUpPage {
+  background-color: #fbf17d;
+}
+
+.groupSetupPage {
+  background-color: yellow;
 }
