@@ -22,13 +22,15 @@ class TaskList extends Component {
   render() {
     return (
       <div>
-        <div>
-          <h5>Group Tasks:</h5>
+        <div className="container-alltasks">
+          <p style={{ fontWeight: "bold" }}>All Tasks</p>
           {this.props.listOfTasks.map((task) => {
             return (
               <div key={task._id} style={{ padding: "8px 0" }}>
                 <div
+                  className="containertask-create"
                   style={{
+                    fontSize: "14px",
                     display: "flex",
                     alignItems: "center",
                     padding: "10px",
@@ -38,9 +40,11 @@ class TaskList extends Component {
                       "rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px 0px 0px 1px",
                   }}
                 >
-                  <span>{task.title}</span>
+                  <span className="prueba">{task.title}</span>
                   <div style={{ marginRight: "5px" }} />
-                  <span>Assigned to: {this.getAssignedText(task)}</span>
+                  <div className="task-assigned">
+                    <span>Assigned to: {this.getAssignedText(task)} </span>
+                  </div>
                   <div style={{ flexGrow: 1 }} />
                   <Button
                     disabled={!!this.isAssigned(task)}
@@ -51,13 +55,13 @@ class TaskList extends Component {
                     Random
                   </Button>
                   <div style={{ marginRight: "10px" }} />
-                  <Button
-                    variant="danger"
-                    size="sm"
+
+                  <button
                     onClick={() => this.props.deleteTask(task._id)}
+                    className="delete-button"
                   >
                     Delete
-                  </Button>
+                  </button>
                 </div>
               </div>
             );

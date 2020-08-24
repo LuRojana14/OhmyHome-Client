@@ -1,0 +1,18 @@
+.profile-button {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  /* color: white; */
+}
+
+.logout-button {
+  /* padding: 10%;
+  border-radius: 6%;
+  background-color: #ff5765;
+  border: 2px solid #ff5765;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer; */
+}

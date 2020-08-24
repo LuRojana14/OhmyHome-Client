@@ -21,7 +21,7 @@ class LoginPage extends Component {
 
   componentDidMount() {
     if (this.props.isLoggedin) {
-      this.props.history.push("/");
+      this.props.history.push("/tasks");
     }
   }
 

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Header from "../../components/Header";
+import "./profile.css";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -32,50 +34,37 @@ class ProfilePage extends Component {
     if (!profile) return "Loading...";
 
     return (
-      <div
-        style={{
-          width: "500px",
-          paddingTop: "100px",
-          padding: "50px 100px",
-          borderRadius: "4px",
-          maxWidth: "800px",
-          margin: "auto",
-          marginTop: "100px",
-          backgroundColor: "#F8F5F1",
-        }}
-      >
-        <Card>
-          <Card.Body>
-            <Card.Title>
-              <p>Hello {profile.username}</p>
-            </Card.Title>
-            <Card.Text>
-              <span>These are your tasks:</span>
-              <br />
-              {profile.tasks.map((task) => {
-                return (
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                      display: "block",
-                    }}
-                  >
-                    {task.title}
-                  </span>
-                );
-              })}
-            </Card.Text>
-            <div style={{ marginBottom: "50px" }} />
-            <Button variant="outline-warning">
-              <Link to="/tasks" style={{ textDecoration: "none" }}>
-                👈 Back
-              </Link>
-            </Button>
-          </Card.Body>
-        </Card>
+      <div>
+        <Header />
+        <div className="container-profile">
+          <div className="hello-container">
+            <p>Hello {profile.username}</p>
+          </div>
 
-        {/* <p>Hello {this.state.ProfileOne.username}</p>
-        <p>These are your tasks:</p> */}
+          <div className="your-tasks">
+            <p style={{ fontWeight: "bold" }}>Your tasks:</p>
+
+            {profile.tasks.map((task) => {
+              return (
+                <span
+                  style={{
+                    textDecoration: "underline",
+                    display: "block",
+                  }}
+                >
+                  {task.title}
+                  <button>+</button>
+                </span>
+              );
+            })}
+          </div>
+
+          <div className="back-container">
+            <button className="back-button">
+              <Link to="/tasks">Back</Link>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

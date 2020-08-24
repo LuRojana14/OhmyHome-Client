@@ -1,8 +1,9 @@
 import React from "react";
 import { withAuth } from "../utils/AuthProvider";
-import axios from "axios";
+// import axios from "axios";
 import { Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+// import "./Header.css";
 
 class Header extends React.Component {
   handleLogout = () => {
@@ -20,8 +21,8 @@ class Header extends React.Component {
             alignItems: "center",
             paddingLeft: "10px",
             paddingRight: "20px",
-            height: "50px",
-            backgroundColor: "rgb(255, 254, 252)",
+            height: "70px",
+            backgroundColor: "#FF5765",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 0px",
           }}
         >
@@ -30,7 +31,7 @@ class Header extends React.Component {
           </Button>
           <div style={{ flexGrow: 1 }}></div>
           <span>
-            Current user:{" "}
+            User:{" "}
             <a
               onClick={() => this.props.history.push("/profile")}
               style={{
