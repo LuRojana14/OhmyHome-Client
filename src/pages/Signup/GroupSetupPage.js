@@ -98,7 +98,7 @@ class GroupCreation extends React.Component {
       .then((response) => {
         console.log("Group creation successful: ", response);
         this.props.refetchSession().then(() => {
-          this.props.history.push("/home");
+          this.props.history.push("/tasks");
         });
       })
       .catch((error) => {
@@ -165,7 +165,7 @@ class GroupSelection extends React.Component {
       .then((response) => {
         console.log("Group assigning successful: ", response);
         this.props.refetchSession().then(() => {
-          this.props.history.push("/home");
+          this.props.history.push("/tasks");
         });
       })
       .catch((error) => {

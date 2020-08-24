@@ -23,23 +23,29 @@ class AddTask extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleFormSubmit}>
-          <h5>Add a task</h5>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              required
-              value={this.state.title}
-              onChange={(e) => this.handleChange(e)}
-            />
-          </Form.Group>
-
-          <Button variant="outline-primary" type="submit" value="submit">
-            Create
-          </Button>
-        </Form>
+        <div className="container-createTask">
+          <Form onSubmit={this.handleFormSubmit}>
+            <p style={{ fontWeight: "bold" }}>Add a task</p>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                type="text"
+                name="title"
+                required
+                value={this.state.title}
+                style={{
+                  boxShadow:
+                    "rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px 0px 0px 1px",
+                }}
+                onChange={(e) => this.handleChange(e)}
+              />
+            </Form.Group>
+            <div className="container-create">
+              <button className="button-create" type="submit" value="submit">
+                Create
+              </button>
+            </div>
+          </Form>
+        </div>
       </div>
     );
   }

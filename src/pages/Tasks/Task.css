@@ -1,0 +1,101 @@
+.container-tasks {
+  /* border: 2px solid red; */
+  border-radius: 4px;
+  max-width: 800px;
+  margin: auto;
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.group-name {
+  /* border: 2px solid violet; */
+  padding: 2%;
+  margin-top: 2%;
+}
+
+.container-createTask {
+  /* border: 2px solid green; */
+  padding: 2%;
+}
+
+.button-create {
+  padding: 5px;
+  border-radius: 6%;
+  background-color: #ff5765;
+  border: 2px solid #ff5765;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-create {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4%;
+}
+
+.container-alltasks {
+  /* border: 2px solid orange; */
+  padding: 2%;
+  margin-top: 0px;
+}
+
+.task-assigned {
+  /* border: 2px solid pink; */
+  font-size: 14px;
+}
+
+.task-name {
+  /* border: 2px solid blue; */
+  font-size: 14px;
+  text-align: center;
+}
+
+.prueba {
+  /* border: 2px solid fuchsia; */
+  width: 30%;
+  padding: 1% 0%;
+}
+
+.group-photo {
+  /* border: 2px solid fuchsia; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2%;
+  align-items: center;
+}
+
+.photo {
+  /* border: 2px solid greenyellow; */
+  display: flex;
+  justify-content: center;
+}
+
+.select-photo {
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  width: 60%;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 6%;
+}
+
+.select-photo input {
+  /* background-color: blue; TERMINAR!!!*/
+}
+
+.delete-button {
+  padding: 5px;
+  border-radius: 6%;
+  background-color: #ff5765;
+  border: 2px solid #ff5765;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
