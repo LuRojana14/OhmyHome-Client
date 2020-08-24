@@ -22,13 +22,19 @@ class Header extends React.Component {
             paddingLeft: "10px",
             paddingRight: "20px",
             height: "70px",
-            backgroundColor: "#FF5765",
+            backgroundColor: "#8A6FDF",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 0px",
           }}
         >
-          <Button onClick={this.handleLogout} variant="link">
-            Logout
-          </Button>
+          <div>
+            <button
+              className="logout-button"
+              onClick={this.handleLogout}
+              style={{ color: "#FFDB15", backgroundColor: "#8A6FDF" }}
+            >
+              Logout
+            </button>
+          </div>
           <div style={{ flexGrow: 1 }}></div>
           <span>
             User:{" "}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import { withAuth } from "../../utils/AuthProvider";
 import { Form, Button, Dropdown, Row, Col } from "react-bootstrap";
@@ -114,7 +114,7 @@ class GroupCreation extends React.Component {
           variant="link"
           onClick={() => this.props.history.push("/group-setup")}
         >
-          👈 Go back
+          Go back
         </Button>
         <div style={{ marginTop: "20px" }} />
         <Form.Group>

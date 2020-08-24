@@ -3,7 +3,7 @@
   border-radius: 4px;
   max-width: 800px;
   margin: auto;
-  padding: 2% 5%;
+  padding: 2% 2%;
   display: flex;
   flex-direction: column;
   margin-top: 0px;
@@ -23,10 +23,11 @@
 .button-create {
   padding: 5px;
   border-radius: 6%;
-  background-color: #ff5765;
-  border: 2px solid #ff5765;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
   font-size: 14px;
-  color: white;
+  color: #ffdb15;
+  font-weight: bold;
   display: flex;
   justify-content: flex-end;
 }
@@ -65,7 +66,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2%;
+  /* padding: 2%; */
   align-items: center;
 }
 
@@ -73,6 +74,7 @@
   /* border: 2px solid greenyellow; */
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .select-photo {
@@ -81,7 +83,7 @@
   align-items: center;
   width: 60%;
   font-size: 14px;
-  margin-top: 0px;
+  margin-top: 2%;
   margin-bottom: 6%;
 }
 

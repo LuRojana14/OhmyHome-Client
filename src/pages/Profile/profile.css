@@ -1,8 +1,15 @@
 .container-profile {
+  /* border: 2px solid green; */
   box-shadow: rgba(84, 70, 35, 0.15) 0px 2px 8px,
     rgba(84, 70, 35, 0.15) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px 0px 0px 1px;
-  margin: 4%;
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-top: 15%;
   padding: 4%;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  height: 400px;
 }
 
 .hello-container {
@@ -24,11 +31,55 @@
 .back-button {
   padding: 5px 10px;
   border-radius: 6%;
-  background-color: #ff5765;
-  border: 2px solid #ff5765;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
   font-size: 14px;
   margin-top: 2%;
   display: flex;
   margin-right: 3%;
+  color: #ffdb15;
+  font-weight: bold;
+}
+
+.plus-button {
+  padding: 3px 8px;
+  border-radius: 6%;
+  background-color: #ffdb15;
+  border: 2px solid #ffdb15;
+  font-size: 14px;
+  margin-top: 2%;
+  display: flex;
+  /* margin-right: 3%; */
+  color: #ff5765;
+  font-weight: bold;
+  margin: 4px;
   /* justify-content: flex-end; */
+}
+
+.plus-container {
+  /* border: 2px solid black; */
+  width: 5%;
+}
+
+.back-container {
+  /* border: 2px solid blue; */
+  margin-top: 2%;
+}
+
+.task-profile {
+  /* border: 2px solid yellow; */
+  width: 90%;
+}
+
+.profile-tasks {
+  /* border: 2px solid violet; */
+  display: flex;
+  width: 100%;
+  margin-top: 0%;
+}
+
+.task-andplus {
+  /* border: 2px solid lightgreen; */
+  display: flex;
+  width: 100%;
 }
