@@ -88,6 +88,20 @@ class TasksPage extends React.Component {
       });
   };
 
+  fileOnchange = (event) => {
+    const file = event.target.files[0];
+    const uploadData = new FormData()
+    uploadData.append('photo', file)
+
+   axios.post(`http://localhost:4000/photo/upload/${this.state.groupName}`,uploadData, {withCredentials:true})
+    .then((response) => {
+      const group = response.data
+      console.log("aqui esta el grupo:" ,group)
+      this.setState({group})
+    })
+    .catch((error) => console.log(error))
+  }
+
   render() {
     if (!this.state.group) return "Loading";
     const { group, tasks } = this.state;
@@ -112,6 +126,8 @@ class TasksPage extends React.Component {
           You are in the group:{" "}
           <span style={{ fontWeight: "bold" }}>{this.state.groupName}</span>
           <div style={{ marginTop: "50px" }}></div>
+          <img src={this.state.group.imageUrl}/>
+          <input type="file" onChange={this.fileOnchange}></input> 
           <div>
             <AddTask
               groupName={group.groupName}

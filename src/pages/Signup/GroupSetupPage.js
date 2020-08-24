@@ -5,6 +5,8 @@ import { withAuth } from "../../utils/AuthProvider";
 import { Form, Button, Dropdown, Row, Col } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { Route } from "react-router-dom";
+import Photo from "./Photo";
+
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class SignUpPage extends Component {
     this.state = {
       showingCreateGroupSection: false,
       showingSelectGroupSection: false,
+      image:"",
     };
   }
 
@@ -107,6 +110,9 @@ class GroupCreation extends React.Component {
       });
   };
 
+  
+
+
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -128,6 +134,7 @@ class GroupCreation extends React.Component {
             value={this.state.groupName}
             placeholder="Enter group name"
           />
+       
           <Form.Text className="text-muted">
             Enter the name of the group you want to create
           </Form.Text>
