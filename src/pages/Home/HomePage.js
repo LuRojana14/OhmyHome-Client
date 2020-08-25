@@ -23,7 +23,7 @@ class HomePage extends Component {
             <button className="button-home">New Home</button>
           </Link>
           <Link to="/login">
-            <button className="button-home">Login</button>
+            <button className="button-home2">Login</button>
           </Link>
         </div>
       </div>

@@ -151,15 +151,14 @@ class GroupCreation extends React.Component {
               placeholder="Enter group name"
             />
             <div className="buttons-group">
-              <button className="button-creategroup" type="submit">
-                Create
-              </button>
-
               <button
                 className="button-backgroup"
                 onClick={() => this.props.history.push("/group-setup")}
               >
                 Back
+              </button>
+              <button className="button-creategroup" type="submit">
+                Create
               </button>
             </div>
           </form>
