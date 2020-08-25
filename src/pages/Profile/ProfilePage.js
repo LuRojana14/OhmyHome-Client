@@ -47,9 +47,9 @@ class ProfilePage extends Component {
 
               {profile.tasks.map((task) => {
                 return (
-                  <div className="task-andplus">
-                    <div className="task-profile">{task.title}</div>
-                    <div className="plus-container">
+                  <div className="list-profiletasks">
+                    <div className="tasks-list">{task.title}</div>
+                    <div>
                       <button className="plus-button">+</button>
                     </div>
                   </div>

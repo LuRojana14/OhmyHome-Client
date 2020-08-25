@@ -71,7 +71,7 @@
 }
 
 .photo {
-  /* border: 2px solid greenyellow; */
+  border: 2px solid #ff5765;
   display: flex;
   justify-content: center;
   width: 100%;
