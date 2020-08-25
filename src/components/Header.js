@@ -1,9 +1,9 @@
 import React from "react";
 import { withAuth } from "../utils/AuthProvider";
 // import axios from "axios";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
-// import "./Header.css";
+import "./Header.css";
 
 class Header extends React.Component {
   handleLogout = () => {
@@ -15,40 +15,24 @@ class Header extends React.Component {
   render() {
     if (this.props.isLoggedin) {
       return (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            paddingLeft: "10px",
-            paddingRight: "20px",
-            height: "70px",
-            backgroundColor: "#8A6FDF",
-            boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 0px",
-          }}
-        >
+        <div className="container-header">
           <div>
-            <button
-              className="logout-button"
-              onClick={this.handleLogout}
-              style={{ color: "#FFDB15", backgroundColor: "#8A6FDF" }}
-            >
+            <button className="logout-button" onClick={this.handleLogout}>
               Logout
             </button>
           </div>
-          <div style={{ flexGrow: 1 }}></div>
-          <span>
+
+          {/* <div style={{ flexGrow: 1 }}></div> */}
+          <div>
             User:{" "}
             <a
+              href=" "
+              className="user-link"
               onClick={() => this.props.history.push("/profile")}
-              style={{
-                cursor: "pointer",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
             >
               {this.props.user.username}
             </a>
-          </span>
+          </div>
         </div>
       );
     } else {
