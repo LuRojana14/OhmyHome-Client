@@ -1,21 +1,37 @@
-.body-signup {
-  background-color: #ffdb15;
-}
-
-.container-signup {
+.container-login {
   /* border: solid 2px red; */
   padding: 10%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 3%;
-  /* margin: 2%; */
   width: 80%;
   margin: auto;
   height: 10%;
-  margin-top: 40%;
+  margin-top: 30%;
   background-color: white;
 }
 
-.container-signup label {
+.button-log {
+  padding: 10px;
+  border-radius: 6%;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
+  font-size: 14px;
+  color: #ffdb15;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10%;
+}
+
+.container-login-button {
+  /* border: solid 2px fuchsia; */
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.container-login label {
   /* border: solid 2px red; */
   width: 100%;
   margin-right: 2%;
@@ -24,7 +40,7 @@
   padding: 2%;
 }
 
-.container-signup input {
+.container-login input {
   /* border: solid 2px blue; */
   border-radius: 3%;
   width: 100%;
@@ -32,41 +48,7 @@
   border-color: white;
 }
 
-.button-signup {
-  padding: 10px;
-  border-radius: 6%;
-  background-color: #8a6fdf;
-  border: 2px solid #8a6fdf;
-  font-size: 14px;
-  color: #ffdb15;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10%;
-}
-
-.container-signup-button {
-  /* border: solid 2px fuchsia; */
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 2%;
-}
-
-.button-login {
-  padding: 10px;
-  border-radius: 6%;
-  background-color: #8a6fdf;
-  border: 2px solid #8a6fdf;
-  font-size: 14px;
-  color: #ffdb15;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10%;
-}
-
-.container-log {
+.container-sign {
   /* border: solid 2px green; */
   margin-top: 3%;
   padding: 1%;
@@ -78,9 +60,23 @@
   align-items: center;
 }
 
-.text-log {
+.text-sign {
   /* border: solid 2px red; */
   margin: 0% 10%;
   padding: 0%;
   text-align: center;
+}
+
+.button-sign {
+  padding: 10px;
+  width: 100%;
+  border-radius: 6%;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
+  font-size: 14px;
+  color: #ffdb15;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10%;
 }
