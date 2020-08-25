@@ -97,7 +97,7 @@
   background-color: #ff5765;
   border: 2px solid #ff5765;
   font-size: 14px;
-  color: white;
+  /* color: white; */
   display: flex;
   justify-content: flex-end;
 }
