@@ -32,7 +32,7 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px;
 }
 
-.list-header {
+.contains-header {
   /* border: 2px solid rgb(0, 225, 255); */
   list-style: none;
   display: flex;

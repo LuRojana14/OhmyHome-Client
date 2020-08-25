@@ -6,6 +6,7 @@ import { Form, Button, Dropdown, Row, Col } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { Route } from "react-router-dom";
 import "./group.css";
+import { Link } from "react-router-dom";
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -82,6 +83,13 @@ class GroupSetupStartPage extends React.Component {
                 type="submit"
               >
                 Create new group
+              </button>
+            </div>
+            <div className="back-tosign">
+              <button className="button-backsign">
+                <Link style={{ color: "#8A6FDF" }} to="/signup">
+                  Back
+                </Link>
               </button>
             </div>
           </div>

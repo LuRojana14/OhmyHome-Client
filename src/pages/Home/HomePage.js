@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import logo from "./../../assets/locoppal.png";
 import "./home.css";
+
 class HomePage extends Component {
   render() {
     return (
@@ -23,7 +24,7 @@ class HomePage extends Component {
             <button className="button-home">New Home</button>
           </Link>
           <Link to="/login">
-            <button className="button-home2">Login</button>
+            <button className="button-home2">Join Home</button>
           </Link>
         </div>
       </div>

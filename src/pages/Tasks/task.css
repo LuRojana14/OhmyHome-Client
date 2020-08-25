@@ -30,6 +30,7 @@
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
+  /* margin-right: 0%; */
 }
 
 .container-create {
@@ -66,12 +67,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* padding: 2%; */
   align-items: center;
 }
 
 .photo {
-  border: 2px solid #ff5765;
+  border: 2px solid #ffdb15;
   display: flex;
   justify-content: center;
   width: 100%;

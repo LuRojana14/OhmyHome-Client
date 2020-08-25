@@ -3,10 +3,10 @@ import { withAuth } from "../utils/AuthProvider";
 // import axios from "axios";
 // import { Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
-import "./Header.css";
-import { Link } from "react-router-dom";
+import "./HeaderTask.css";
+// import { Link } from "react-router-dom";
 
-class Header extends React.Component {
+class HeaderTask extends React.Component {
   handleLogout = () => {
     this.props.logout().then(() => {
       this.props.history.push("/");
@@ -18,16 +18,18 @@ class Header extends React.Component {
     if (this.props.isLoggedin) {
       return (
         <div className="header">
-          <ul className="list-header">
+          <ul className="contains-header">
             <li>
-              <button className="logout-button">
-                <Link style={{ color: "#FFDB15" }} to="/tasks">
-                  Back
-                </Link>
+              {" "}
+              <button
+                className="logout-button"
+                onClick={() => this.props.history.push("/profile")}
+              >
+                {this.props.user.username}
               </button>
             </li>
+
             <li>
-              {/* <img className="logout-button" src="/assets/logout.png" alt="" onClick={this.handleLogout}/> */}
               <button className="logout-button" onClick={this.handleLogout}>
                 Logout
               </button>
@@ -41,4 +43,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(withAuth(Header));
+export default withRouter(withAuth(HeaderTask));
