@@ -1,0 +1,42 @@
+.profile-button {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  /* color: white; */
+}
+
+.logout-button {
+  padding: 5px;
+  border-radius: 6%;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
+  color: #ffdb15;
+  font-weight: bold;
+  border: none;
+}
+
+.user-link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ffdb15;
+}
+
+.header {
+  /* border: 2px solid red; */
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  align-items: center;
+  background-color: #8a6fdf;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px;
+}
+
+.contains-header {
+  /* border: 2px solid rgb(0, 225, 255); */
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-left: 0%;
+}

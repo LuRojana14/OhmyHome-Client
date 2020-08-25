@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import "./Task.css";
+import HeaderTask from "../../components/HeaderTask";
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -113,7 +114,7 @@ class TasksPage extends React.Component {
 
     return (
       <div>
-        <Header />
+        <HeaderTask />
         <div className="container-tasks">
           <div className="group-name">
             <span style={{ fontWeight: "bold" }}>Group: </span>

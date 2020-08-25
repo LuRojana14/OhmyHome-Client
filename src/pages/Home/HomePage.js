@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import logo from "./../../assets/locoppal.png";
 import "./home.css";
+
 class HomePage extends Component {
   render() {
     return (
