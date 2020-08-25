@@ -51,14 +51,14 @@ code {
   }
 }
 
-body {
+/* body {
   transition: background-color 1000ms linear;
-}
+} */
 
-.signUpPage {
+/* .signUpPage {
   background-color: #fbf17d;
-}
+} */
 
-.groupSetupPage {
+/* .groupSetupPage {
   background-color: yellow;
-}
+} */

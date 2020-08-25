@@ -4,6 +4,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Form, Button } from "react-bootstrap";
 import { withAuth } from "../../utils/AuthProvider";
+import "./login.css";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -48,62 +49,59 @@ class LoginPage extends Component {
     const { username, password } = this.state;
 
     return (
-      <div
-        style={{
-          padding: "40px",
-          borderRadius: "10px",
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
-          backgroundColor: "white",
-          width: "400px",
-          margin: "auto",
-          marginTop: "100px",
-        }}
-      >
+      <div>
         <Helmet>
-          <body className="signUpPage" />
+          <body className="body-signup"></body>
         </Helmet>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              required
-              name="username"
-              onChange={this.handleChange}
-              type="text"
-              value={username}
-              placeholder="Enter username"
-            />
-          </Form.Group>
+        <div className="container-login">
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <label>Username</label>
+              <input
+                required
+                name="username"
+                onChange={this.handleChange}
+                type="text"
+                value={username}
+                placeholder="Enter username"
+              />
+            </div>
+            <div>
+              <label>Password</label>
+              <input
+                name="password"
+                required
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Password"
+                value={password}
+              />
+            </div>
 
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              required
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Password"
-              value={password}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Button variant="primary" type="submit">
-              Login
-            </Button>
-          </Form.Group>
-          <div style={{ marginTop: "50px" }} />
-          <Form.Group>
-            <p>You don't have an account? want to create one instead?</p>
-            <Button
+            <div className="container-login-button">
+              <button className="button-log" type="submit">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="container-sign">
+          <div className="text-sign">
+            <p>Don't have an account? Create one!</p>
+          </div>
+          <div>
+            <button
+              className="button-sign"
               onClick={() => this.props.history.push("/signup")}
               size="sm"
               variant="outline-primary"
               type="submit"
             >
-              Sign up 🙌
-            </Button>
-          </Form.Group>
-        </Form>
+              Sign up
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

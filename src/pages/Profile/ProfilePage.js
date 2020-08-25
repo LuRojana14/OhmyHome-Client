@@ -38,32 +38,32 @@ class ProfilePage extends Component {
         <Header />
         <div className="container-profile">
           <div className="hello-container">
-            <p>Hello {profile.username}</p>
+            <p style={{ fontWeight: "bold" }}>{profile.username}</p>
           </div>
 
-          <div className="your-tasks">
-            <p style={{ fontWeight: "bold" }}>Your tasks:</p>
+          <div className="profile-tasks">
+            <div className="your-tasks">
+              <p style={{ fontWeight: "bold" }}>Your tasks:</p>
 
-            {profile.tasks.map((task) => {
-              return (
-                <span
-                  style={{
-                    textDecoration: "underline",
-                    display: "block",
-                  }}
-                >
-                  {task.title}
-                  <button>+</button>
-                </span>
-              );
-            })}
+              {profile.tasks.map((task) => {
+                return (
+                  <div className="list-profiletasks">
+                    <div className="tasks-list">{task.title}</div>
+                    <div>
+                      <button className="plus-button">+</button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-
-          <div className="back-container">
-            <button className="back-button">
-              <Link to="/tasks">Back</Link>
-            </button>
-          </div>
+        </div>
+        <div className="back-container">
+          <button className="back-button">
+            <Link style={{ color: "#FFDB15" }} to="/tasks">
+              Back
+            </Link>
+          </button>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import axios from "axios";
 import { withAuth } from "../../utils/AuthProvider";
 import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import "./signup.css";
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -46,64 +47,63 @@ class SignUpPage extends Component {
     const { username, password } = this.state;
 
     return (
-      <div
-        style={{
-          padding: "40px",
-          borderRadius: "10px",
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
-          backgroundColor: "white",
-          width: "400px",
-          margin: "auto",
-          marginTop: "100px",
-        }}
-      >
+      <div>
         <Helmet>
-          <body className="signUpPage" />
+          <body className="body-signup"></body>
         </Helmet>
-        <h3>Lets get your account setup!</h3>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              name="username"
-              required
-              onChange={this.handleChange}
-              type="text"
-              value={username}
-              placeholder="Enter username"
-            />
-            <Form.Text className="text-muted">
-              Enter your username (could be an email as well)
-            </Form.Text>
-          </Form.Group>
 
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              required
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Password"
-              value={password}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Create account
-          </Button>
-          <div style={{ marginTop: "50px" }} />
-          <Form.Group>
-            <p>You already have an account, login instead!</p>
-            <Button
+        {/* <h5>Lets get your account setup!</h5> */}
+        <div className="container-signup">
+          <form className="form" onSubmit={this.handleSubmit}>
+            <div className="container-form">
+              <div>
+                <label>Username</label>
+                <input
+                  name="username"
+                  required
+                  onChange={this.handleChange}
+                  type="text"
+                  value={username}
+                  placeholder="Enter username"
+                />
+              </div>
+
+              <div>
+                <label>Password</label>
+                <input
+                  name="password"
+                  required
+                  onChange={this.handleChange}
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                />
+              </div>
+              <div className="container-signup-button">
+                <button className="button-signup" type="submit">
+                  Create
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div className="container-log">
+          <div className="text-log">
+            <p>Already have an account?, login instead!</p>
+          </div>
+          <div>
+            <button
+              className="button-login"
               onClick={() => this.props.history.push("/login")}
               size="sm"
               variant="outline-primary"
               type="submit"
             >
               Login
-            </Button>
-          </Form.Group>
-        </Form>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
