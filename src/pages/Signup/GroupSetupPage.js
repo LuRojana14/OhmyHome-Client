@@ -142,20 +142,37 @@ class GroupCreation extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <button onClick={() => this.props.history.push("/group-setup")}>
-          Back
-        </button>
-        <label>Group Name</label>
-        <input
-          name="groupName"
-          onChange={(event) => this.setState({ groupName: event.target.value })}
-          type="text"
-          value={this.state.groupName}
-          placeholder="Enter group name"
-        />
-        <button type="submit">Create</button>
-      </form>
+      <div>
+        <Helmet>
+          <body className="body-createnewgroup"></body>
+        </Helmet>
+        <div className="container-create-newgroup">
+          <form onSubmit={this.handleSubmit}>
+            <label>Group Name:</label>
+            <input
+              name="groupName"
+              onChange={(event) =>
+                this.setState({ groupName: event.target.value })
+              }
+              type="text"
+              value={this.state.groupName}
+              placeholder="Enter group name"
+            />
+            <div className="buttons-group">
+              <button className="button-creategroup" type="submit">
+                Create
+              </button>
+
+              <button
+                className="button-backgroup"
+                onClick={() => this.props.history.push("/group-setup")}
+              >
+                Back
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
       // <Form onSubmit={this.handleSubmit}>
       //   <Button
@@ -224,55 +241,75 @@ class GroupSelection extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Button
-          variant="link"
-          onClick={() => this.props.history.push("/group-setup")}
-        >
-          Go back
-        </Button>
-        <div style={{ marginTop: "20px" }} />
-        <p>
-          Take a look at the current groups and find the one you want to join!
-        </p>
+      <div>
+        <Helmet>
+          <body className="body-existgroup"></body>
+        </Helmet>
+        <Form onSubmit={this.handleSubmit}>
+          <p style={{ textAlign: "center", fontWeight: "bold" }}>
+            Take a look at the current groups and find the one you want to join!
+          </p>
+          <div style={{ marginBottom: "40px" }} />
 
-        <Row>
-          <Col>
-            <Dropdown>
-              <Dropdown.Toggle variant="link" id="dropdown-basic">
-                {this.state.selected
-                  ? this.state.selected
-                  : "Select your group"}
-              </Dropdown.Toggle>
+          <Row>
+            <Col>
+              <Dropdown>
+                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                  {this.state.selected
+                    ? this.state.selected
+                    : "Select your group"}
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {this.state.groups.map((group) => {
-                  return (
-                    <Dropdown.Item
-                      key={group.groupName}
-                      onClick={() =>
-                        this.setState({ selected: group.groupName })
-                      }
-                    >
-                      {group.groupName}
-                    </Dropdown.Item>
-                  );
-                })}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col>
+                <Dropdown.Menu>
+                  {this.state.groups.map((group) => {
+                    return (
+                      <Dropdown.Item
+                        key={group.groupName}
+                        onClick={() =>
+                          this.setState({ selected: group.groupName })
+                        }
+                      >
+                        {group.groupName}
+                      </Dropdown.Item>
+                    );
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+            </Col>
 
-          <Col>
-            <Button
-              disabled={!this.state.selected}
-              variant="primary"
-              type="submit"
-            >
-              Join
-            </Button>
-          </Col>
-        </Row>
-      </Form>
+            <Col>
+              <div className="container-selectbuttons">
+                <div>
+                  <button
+                    className="button-joingroup"
+                    disabled={!this.state.selected}
+                    variant="primary"
+                    type="submit"
+                  >
+                    Join
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="button-back"
+                    onClick={() => this.props.history.push("/group-setup")}
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+
+              {/* <Button
+                disabled={!this.state.selected}
+                variant="primary"
+                type="submit"
+              >
+                Join
+              </Button> */}
+            </Col>
+          </Row>
+        </Form>
+      </div>
     );
   }
 }
