@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 class Header extends React.Component {
   handleLogout = () => {
     this.props.logout().then(() => {
+      this.props.history.push("/");
       window.location.reload();
     });
   };
@@ -26,16 +27,7 @@ class Header extends React.Component {
               </button>
             </li>
             <li>
-              {" "}
-              <button
-                className="logout-button"
-                onClick={() => this.props.history.push("/profile")}
-              >
-                {this.props.user.username}
-              </button>
-            </li>
-
-            <li>
+              {/* <img className="logout-button" src="/assets/logout.png" alt="" onClick={this.handleLogout}/> */}
               <button className="logout-button" onClick={this.handleLogout}>
                 Logout
               </button>

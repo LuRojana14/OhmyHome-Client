@@ -9,6 +9,7 @@ import "./HeaderTask.css";
 class HeaderTask extends React.Component {
   handleLogout = () => {
     this.props.logout().then(() => {
+      this.props.history.push("/");
       window.location.reload();
     });
   };
