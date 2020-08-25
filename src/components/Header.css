@@ -20,7 +20,7 @@
   border-radius: 6%;
   background-color: #8a6fdf;
   border: 2px solid #8a6fdf;
-  font-size: 14px;
+  /* font-size: 14px; */
   color: #ffdb15;
   font-weight: bold;
   border: none;
@@ -32,4 +32,5 @@
   cursor: pointer;
   font-weight: bold;
   text-decoration: underline;
+  color: #ffdb15;
 }
