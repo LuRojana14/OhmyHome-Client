@@ -25,11 +25,11 @@
 }
 
 .container-signup input {
-  /* border: solid 2px blue; */
-  border-radius: 3%;
+  border: 1px solid #ffdb15;
+  border-radius: 4%;
   width: 100%;
   padding: 2%;
-  border-color: white;
+  /* border-color: white; */
 }
 
 .button-signup {
