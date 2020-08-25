@@ -1,0 +1,56 @@
+.button-group {
+  padding: 10px 18px;
+  border-radius: 6%;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
+  font-size: 14px;
+  color: #ffdb15;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-top: 10%; */
+}
+
+.button-creategroup {
+  padding: 10px 30px;
+  border-radius: 6%;
+  background-color: #8a6fdf;
+  border: 2px solid #8a6fdf;
+  font-size: 14px;
+  color: #ffdb15;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-top: 10%; */
+}
+
+.select-group {
+  /* border: 2px solid red; */
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.create-group {
+  /* border: 2px solid blue; */
+  text-align: center;
+  margin-top: 7%;
+}
+
+.container-button-group {
+  /* border: 2px solid orange; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-button-creategroup {
+  /* border: 2px solid fuchsia; */
+  display: flex;
+  justify-content: center;
+}
+
+.body-creategroup {
+  background-color: #ffdb15;
+}

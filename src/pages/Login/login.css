@@ -11,7 +11,7 @@
 }
 
 .button-log {
-  padding: 10px;
+  padding: 10px 18px;
   border-radius: 6%;
   background-color: #8a6fdf;
   border: 2px solid #8a6fdf;
@@ -26,7 +26,7 @@
 .container-login-button {
   /* border: solid 2px fuchsia; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
   margin-top: 2%;
 }

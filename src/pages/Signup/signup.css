@@ -11,7 +11,7 @@
   width: 80%;
   margin: auto;
   height: 10%;
-  margin-top: 40%;
+  margin-top: 30%;
   background-color: white;
 }
 
@@ -48,7 +48,7 @@
 .container-signup-button {
   /* border: solid 2px fuchsia; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
   margin-top: 2%;
 }

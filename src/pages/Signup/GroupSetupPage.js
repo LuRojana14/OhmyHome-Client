@@ -5,6 +5,7 @@ import { withAuth } from "../../utils/AuthProvider";
 import { Form, Button, Dropdown, Row, Col } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { Route } from "react-router-dom";
+import "./group.css";
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -57,25 +58,57 @@ class GroupSetupStartPage extends React.Component {
   render() {
     return (
       <div>
-        <h2>Lets get the group setup</h2>
-        <div style={{ marginTop: "20px" }} />
-        <p>Do you already have a group?</p>
-        <Button
+        <Helmet>
+          <body className="body-creategroup"></body>
+        </Helmet>
+        <h5 style={{ textAlign: "center" }}>Lets get the group setup!</h5>
+        {/* <div style={{ marginTop: "20px" }} /> */}
+        <div className="select-group">
+          <p>Do you already have a group?</p>
+          <div className="container-button-group">
+            <button
+              className="button-group"
+              onClick={() =>
+                this.props.history.push("/group-setup/select-group")
+              }
+              variant="primary"
+              type="submit"
+            >
+              Select an existing one
+            </button>
+          </div>
+        </div>
+        {/* <div style={{ marginTop: "20px" }} /> */}
+        <div className="create-group">
+          <p>Or do you want to create a new one?</p>
+          <div className="container-button-creategroup">
+            <button
+              className="button-creategroup"
+              onClick={() =>
+                this.props.history.push("/group-setup/create-group")
+              }
+              variant="primary"
+              type="submit"
+            >
+              Create new group
+            </button>
+          </div>
+        </div>
+        {/* <Button
           onClick={() => this.props.history.push("/group-setup/select-group")}
           variant="primary"
           type="submit"
         >
           Select an existing one
-        </Button>
-        <div style={{ marginTop: "20px" }} />
-        <p>Or do you want to create a new one?</p>
-        <Button
+        </Button> */}
+
+        {/* <Button
           onClick={() => this.props.history.push("/group-setup/create-group")}
           variant="primary"
           type="submit"
         >
           Create new group
-        </Button>
+        </Button> */}
       </div>
     );
   }
@@ -109,35 +142,50 @@ class GroupCreation extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Button
-          variant="link"
-          onClick={() => this.props.history.push("/group-setup")}
-        >
-          Go back
-        </Button>
-        <div style={{ marginTop: "20px" }} />
-        <Form.Group>
-          <Form.Label>Group Name</Form.Label>
-          <Form.Control
-            name="groupName"
-            onChange={(event) =>
-              this.setState({ groupName: event.target.value })
-            }
-            type="text"
-            value={this.state.groupName}
-            placeholder="Enter group name"
-          />
-          <Form.Text className="text-muted">
-            Enter the name of the group you want to create
-          </Form.Text>
-        </Form.Group>
-        <Form.Group>
-          <Button variant="primary" type="submit">
-            Create
-          </Button>
-        </Form.Group>
-      </Form>
+      <form onSubmit={this.handleSubmit}>
+        <button onClick={() => this.props.history.push("/group-setup")}>
+          Back
+        </button>
+        <label>Group Name</label>
+        <input
+          name="groupName"
+          onChange={(event) => this.setState({ groupName: event.target.value })}
+          type="text"
+          value={this.state.groupName}
+          placeholder="Enter group name"
+        />
+        <button type="submit">Create</button>
+      </form>
+
+      // <Form onSubmit={this.handleSubmit}>
+      //   <Button
+      //     variant="link"
+      //     onClick={() => this.props.history.push("/group-setup")}
+      //   >
+      //     Go back
+      //   </Button>
+      //   <div style={{ marginTop: "20px" }} />
+      //   <Form.Group>
+      //     <Form.Label>Group Name</Form.Label>
+      //     <Form.Control
+      //       name="groupName"
+      //       onChange={(event) =>
+      //         this.setState({ groupName: event.target.value })
+      //       }
+      //       type="text"
+      //       value={this.state.groupName}
+      //       placeholder="Enter group name"
+      //     />
+      //     <Form.Text className="text-muted">
+      //       Enter the name of the group you want to create
+      //     </Form.Text>
+      //   </Form.Group>
+      //   <Form.Group>
+      //     <Button variant="primary" type="submit">
+      //       Create
+      //     </Button>
+      //   </Form.Group>
+      // </Form>
     );
   }
 }
@@ -181,7 +229,7 @@ class GroupSelection extends React.Component {
           variant="link"
           onClick={() => this.props.history.push("/group-setup")}
         >
-          👈 Go back
+          Go back
         </Button>
         <div style={{ marginTop: "20px" }} />
         <p>
@@ -220,7 +268,7 @@ class GroupSelection extends React.Component {
               variant="primary"
               type="submit"
             >
-              Join 🙌
+              Join
             </Button>
           </Col>
         </Row>

@@ -81,7 +81,7 @@ class SignUpPage extends Component {
               </div>
               <div className="container-signup-button">
                 <button className="button-signup" type="submit">
-                  Create account
+                  Create
                 </button>
               </div>
             </div>
