@@ -4,6 +4,7 @@ import { withAuth } from "../utils/AuthProvider";
 // import { Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   handleLogout = () => {
@@ -15,24 +16,31 @@ class Header extends React.Component {
   render() {
     if (this.props.isLoggedin) {
       return (
-        <div className="container-header">
-          <div>
-            <button className="logout-button" onClick={this.handleLogout}>
-              Logout
-            </button>
-          </div>
+        <div className="header">
+          <ul className="list-header">
+            <li>
+              <button className="logout-button">
+                <Link style={{ color: "#FFDB15" }} to="/tasks">
+                  Back
+                </Link>
+              </button>
+            </li>
+            <li>
+              {" "}
+              <button
+                className="logout-button"
+                onClick={() => this.props.history.push("/profile")}
+              >
+                {this.props.user.username}
+              </button>
+            </li>
 
-          {/* <div style={{ flexGrow: 1 }}></div> */}
-          <div>
-            User:{" "}
-            <a
-              href=" "
-              className="user-link"
-              onClick={() => this.props.history.push("/profile")}
-            >
-              {this.props.user.username}
-            </a>
-          </div>
+            <li>
+              <button className="logout-button" onClick={this.handleLogout}>
+                Logout
+              </button>
+            </li>
+          </ul>
         </div>
       );
     } else {

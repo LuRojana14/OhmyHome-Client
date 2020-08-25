@@ -58,13 +58,13 @@ class ProfilePage extends Component {
             </div>
           </div>
         </div>
-        <div className="back-container">
+        {/* <div className="back-container">
           <button className="back-button">
             <Link style={{ color: "#FFDB15" }} to="/tasks">
               Back
             </Link>
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }
