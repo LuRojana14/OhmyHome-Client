@@ -5,7 +5,7 @@ import { withAuth } from "../../utils/AuthProvider";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import HeaderTask from "../../components/HeaderTask";
-import "./Task.css";
+import "./task.css";
 
 class TasksPage extends React.Component {
   constructor(props) {
