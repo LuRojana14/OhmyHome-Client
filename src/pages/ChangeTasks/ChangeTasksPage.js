@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Switch, Route } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom";
 import { withAuth } from "../../utils/AuthProvider";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import "./changeTask.css";
 
 class ChangeTasksPage extends Component {
@@ -26,7 +26,7 @@ class ChangeTasksPage extends Component {
         const filterTasks = responseFromApi.data.filter((data) => {
           console.log("AQUI RESPUESTA", responseFromApi.data);
           return data.user._id != this.props.user._id;
-          console.log(this.props);
+          // console.log(this.props);
         });
         // console.log("resuesta de api:",responseFromApi)
         this.setState({

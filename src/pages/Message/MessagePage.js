@@ -19,17 +19,18 @@ class MessagePage extends Component {
   getAllMessages = () => {
     console.log("Entra");
     axios.get("http://localhost:4000/message/all").then((responseFromApi) => {
-      console.log("respuesta api:", responseFromApi);
+      // console.log("ESTE VIEJA:",responseFromApi);
       const filterMessage = responseFromApi.data.filter((data) => {
         console.log("Esta es la data:", data);
-        return data.messageReceiver === this.props.user._id;
+        return data.messageReceiver._id === this.props.user._id;
       });
       console.log("AQUI RESPUESTA", filterMessage);
+      console.log("MENSAJE FILTRADO", filterMessage.messageSender);
       this.setState({
-        messageSender: filterMessage.messageSender,
-        myTask: filterMessage.myTask,
-        messageText: filterMessage.messageText,
-        taskToChange: filterMessage.taskToChange,
+        // messageSender: filterMessage.messageSender,
+        // myTask: filterMessage.myTask,
+        // messageText: filterMessage.messageText,
+        // taskToChange: filterMessage.taskToChange,
         listOfMessages: filterMessage,
       });
       // this.setState({
@@ -38,28 +39,28 @@ class MessagePage extends Component {
       // })
     });
   };
-  acceptChange = () => {
-    console.log("Entra");
-    axios.post("http://localhost:4000/message/all").then((responseFromApi) => {
-      console.log("respuesta api:", responseFromApi);
-      const filterMessage = responseFromApi.data.filter((data) => {
-        console.log("Esta es la data:", data);
-        return data.messageReceiver === this.props.user._id;
-      });
-      console.log("AQUI RESPUESTA", filterMessage);
-      this.setState({
-        messageSender: filterMessage.messageSender,
-        myTask: filterMessage.myTask,
-        messageText: filterMessage.messageText,
-        taskToChange: filterMessage.taskToChange,
-        listOfMessages: filterMessage,
-      });
-      // this.setState({
-      //     listOfTasks: filterTasks,
-      //     selectedTask:filterTasks[0].title
-      // })
-    });
-  };
+  // acceptChange = () => {
+  //   console.log("Entra");
+  //   axios.post("http://localhost:4000/message/all").then((responseFromApi) => {
+  //     // console.log("respuesta api:",responseFromApi);
+  //     const filterMessage = responseFromApi.data.filter((data) => {
+  //       // console.log('Esta es la data:', data);
+  //       return data.messageReceiver === this.props.user._id;
+  //     });
+  //     // console.log("AQUI RESPUESTA",filterMessage);
+  //     //    this.setState({
+  //     //                 messageSender: filterMessage.messageSender,
+  //     //                 myTask: filterMessage.myTask,
+  //     //                 messageText: filterMessage.messageText,
+  //     //                 taskToChange: filterMessage.taskToChange,
+  //     //                 listOfMessages: filterMessage
+  //     //             })
+  //     // this.setState({
+  //     //     listOfTasks: filterTasks,
+  //     //     selectedTask:filterTasks[0].title
+  //     // })
+  //   });
+  // };
   // updatedListMessage = () => {
   //     axios
   //       .get(`http://localhost:4000/message/all`)
@@ -69,7 +70,7 @@ class MessagePage extends Component {
   //   };
   deleteMessage = (messageId) => {
     axios
-      .delete(`http://localhost:4000/message/deletemessage/:id`)
+      .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
       .then(() => {
         this.getAllMessages();
       })
@@ -79,23 +80,27 @@ class MessagePage extends Component {
   };
   componentDidMount() {
     this.deleteMessage();
+    this.getAllMessages();
   }
   render() {
-    this.getAllMessages();
+    console.log("esto", this.state.listOfMessages);
     return (
       <div>
         <h1>Messages</h1>
         <div>
           {this.state.listOfMessages.map((messageFilter) => (
             <div key={messageFilter._id}>
-              <p>Message from: {messageFilter.messageSender}</p>
-              <p>{messageFilter.messageText}</p>
+              {console.log("ver filtro", messageFilter)}
+              <p>Message from: {messageFilter.messageSender.username}</p>
+              <p>{}</p>
               <p>Want to change this task:</p>
-              <p>{messageFilter.taskToChange}</p>
+              <p>{messageFilter.myTask.title}</p>
               <p>for</p>
-              <p key={messageFilter._id}>{messageFilter.myTask}</p>
-              <Button onClick={this.acceptChange}>Accept Change</Button>
-              <Button onClick={this.deleteMessage}>Reject Change</Button>
+              <p>{messageFilter.taskToChange.title}</p>
+              {/* <Button onClick={}>Accept Change</Button> */}
+              <Button onClick={() => this.deleteMessage(messageFilter._id)}>
+                Reject Change
+              </Button>
             </div>
           ))}
         </div>

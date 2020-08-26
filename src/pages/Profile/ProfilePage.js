@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import "./profile.css";
+import { Bell } from "../../components/Bell";
+import { withAuth } from "../../utils/AuthProvider";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -29,16 +31,29 @@ class ProfilePage extends Component {
   }
 
   render() {
+    let bell = "";
+    let messages = 0;
     const { profile } = this.state;
-
+    if (this.props.user !== null) {
+      messages = this.props.user.penddingMess.length;
+    }
+    console.log("CANTIDAD", messages);
     if (!profile) return "Loading...";
-
+    if (messages > 0) {
+      bell = (
+        <Link to="/message/all">
+          <Bell />
+        </Link>
+      );
+    }
     return (
       <div>
         <Header />
         <div className="container-profile">
           <div className="hello-container">
-            <p style={{ fontWeight: "bold" }}>{profile.username}</p>
+            <p style={{ fontWeight: "bold" }}>
+              {profile.username} {bell}
+            </p>
           </div>
 
           <div className="profile-tasks">
@@ -48,9 +63,9 @@ class ProfilePage extends Component {
               {profile.tasks.map((task) => {
                 return (
                   <div className="list-profiletasks">
-                    <div className="tasks-list">{task.title}</div>
-                    <div>
-                      <button className="plus-button">+</button>
+                    <div className="tasks-list">
+                      {task.title}
+                      <Link to={`/change/${task._id}`}> change</Link>
                     </div>
                   </div>
                 );
@@ -70,4 +85,4 @@ class ProfilePage extends Component {
   }
 }
 
-export default ProfilePage;
+export default withAuth(ProfilePage);
