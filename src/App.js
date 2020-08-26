@@ -12,9 +12,9 @@ import TasksPage from "./pages/Tasks/TasksPage";
 import "./App.css";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import HomePage from "./pages/Home/HomePage";
-
+import ChangeTasksPage from "./pages/ChangeTasks/ChangeTasksPage";
+import MessagePage from "./pages/Message/MessagePage";
 axios.defaults.withCredentials = true;
-
 function App() {
   return (
     <AuthProvider>
@@ -33,6 +33,8 @@ function App() {
           <Route path={"/group-setup"} component={GroupSetupPage} />
           <Route path={"/tasks"} component={TasksPage} />
           <Route path={"/profile"} component={ProfilePage} />
+          <Route path={"/change/:taskId"} component={ChangeTasksPage} />
+          <Route path={"/message/:id"} component={MessagePage} />
           <Route path={"/"} component={HomePage} />
           <Route component={NotFoundPage} />
         </Switch>
@@ -40,5 +42,4 @@ function App() {
     </AuthProvider>
   );
 }
-
 export default App;

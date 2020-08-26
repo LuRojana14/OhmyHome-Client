@@ -1,31 +1,31 @@
-import axios from "axios";
+import axios from 'axios';
 
 class Auth {
   constructor() {
     this.auth = axios.create({
-      baseURL: process.env.REACT_APP_API_URL,
+      baseURL: 'http://localhost:4000',
       withCredentials: true,
     });
   }
 
-  signup({ username, password, namegroup }) {
+  signup ({ username, password, namegroup }) {
     return this.auth
-      .post("/auth/signup", { username, password, namegroup })
+      .post('/auth/signup', { username, password, namegroup })
       .then(({ data }) => data);
   }
 
-  login({ username, password }) {
+  login ({ username, password }) {
     return this.auth
-      .post("/auth/login", { username, password })
+      .post('/auth/login', { username, password })
       .then(({ data }) => data);
   }
 
-  logout() {
-    return this.auth.post("/auth/logout", {}).then(({ data }) => data);
+  logout () {
+    return this.auth.post('/auth/logout', {}).then(({ data }) => data);
   }
 
-  me() {
-    return this.auth.get("/auth/me").then(({ data }) => data);
+  me () {
+    return this.auth.get('/auth/me').then(({ data }) => data);
   }
 }
 

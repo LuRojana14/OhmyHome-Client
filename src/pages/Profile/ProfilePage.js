@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import "./profile.css";
+import { Bell } from "../../components/Bell";
+import { withAuth } from "../../utils/AuthProvider";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -15,10 +17,7 @@ class ProfilePage extends Component {
   // CREATE PROFILE:
   getProfile = () => {
     axios
-      // .get(`http://localhost:4000/profile`, { withCredentials: true })
-      .get(`${process.env.REACT_APP_API_URI}/profile`, {
-        withCredentials: true,
-      })
+      .get(`http://localhost:4000/profile`, { withCredentials: true })
       .then((responseFromApi) => {
         console.log(responseFromApi.data);
         this.setState({
@@ -32,16 +31,34 @@ class ProfilePage extends Component {
   }
 
   render() {
+    let bell = "";
+    let messages = 0;
     const { profile } = this.state;
-
+    if (this.props.user !== null) {
+      messages = this.props.user.penddingMess.length;
+    }
+    console.log("CANTIDAD", messages);
     if (!profile) return "Loading...";
-
+    if (messages > 0) {
+      bell = (
+        <Link to="/message/all">
+          <div>
+            <Bell />
+          </div>
+        </Link>
+      );
+    }
     return (
       <div>
         <Header />
         <div className="container-profile">
-          <div className="hello-container">
-            <p style={{ fontWeight: "bold" }}>{profile.username}</p>
+          <div className="name-notifications">
+            <div className="hello-container">
+              <p style={{ fontWeight: "bold" }}>{profile.username}</p>
+            </div>
+            <div className="pru">
+              <div className="bell">{bell}</div>
+            </div>
           </div>
 
           <div className="profile-tasks">
@@ -53,7 +70,17 @@ class ProfilePage extends Component {
                   <div className="list-profiletasks">
                     <div className="tasks-list">{task.title}</div>
                     <div>
-                      <button className="plus-button">+</button>
+                      <Link
+                        to={`/change/${task._id}`}
+                        style={{
+                          color: "#FF5765",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Change
+                      </Link>
                     </div>
                   </div>
                 );
@@ -73,4 +100,4 @@ class ProfilePage extends Component {
   }
 }
 
-export default ProfilePage;
+export default withAuth(ProfilePage);

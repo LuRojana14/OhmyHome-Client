@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { withAuth } from "../../utils/AuthProvider";
-// import Header from "../../components/Header";
+import Header from "../../components/Header";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
+import "./Task.css";
 import HeaderTask from "../../components/HeaderTask";
-import "./task.css";
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -33,8 +33,7 @@ class TasksPage extends React.Component {
   fetchTasks = () => {
     const { namegroup } = this.props.user;
     axios
-      // .get(`http://localhost:4000/api/tasks/${namegroup}`)
-      .get(`${process.env.REACT_APP_API_URI}/api/tasks/${namegroup}`)
+      .get(`http://localhost:4000/api/tasks/${namegroup}`)
       .then(({ data }) => {
         this.setState({ tasks: data });
       });
@@ -42,18 +41,14 @@ class TasksPage extends React.Component {
 
   refetchGroup = () => {
     const { namegroup } = this.props.user;
-    // axios.get(`http://localhost:4000/group/${namegroup}`).then(({ data }) => {
-    axios
-      .get(`${process.env.REACT_APP_API_URI}/group/${namegroup}`)
-      .then(({ data }) => {
-        this.setState({ group: data });
-      });
+    axios.get(`http://localhost:4000/group/${namegroup}`).then(({ data }) => {
+      this.setState({ group: data });
+    });
   };
 
   deleteTask = (taskId) => {
     axios
-      // .delete(`http://localhost:4000/api/tasks/${taskId}`)
-      .delete(`${process.env.REACT_APP_API_URI}/api/tasks/${taskId}`)
+      .delete(`http://localhost:4000/api/tasks/${taskId}`)
       .then(() => {
         this.refetchGroup();
         this.fetchTasks();
@@ -66,8 +61,7 @@ class TasksPage extends React.Component {
   addTask = (title) => {
     const groupName = this.props.user.namegroup;
     axios
-      // .post("http://localhost:4000/api/tasks", {
-      .post(`${process.env.REACT_APP_API_URI}/api/tasks`, {
+      .post("http://localhost:4000/api/tasks", {
         title,
         namegroup: groupName,
       })
@@ -86,8 +80,7 @@ class TasksPage extends React.Component {
     const randomUser = this.state.group.users[randomUserIndex];
 
     axios
-      // .post(`http://localhost:4000/api/tasks/assign`, {
-      .post(`${process.env.REACT_APP_API_URI}/api/tasks/assign`, {
+      .post(`http://localhost:4000/api/tasks/assign`, {
         taskId,
         userId: randomUser._id,
       })
@@ -103,8 +96,7 @@ class TasksPage extends React.Component {
     uploadData.append("photo", file);
     axios
       .post(
-        // `http://localhost:4000/photo/upload/${this.state.groupName}`,
-        `${process.env.REACT_APP_API_URI}/photo/upload/${this.state.groupName}`,
+        `http://localhost:4000/photo/upload/${this.state.groupName}`,
         uploadData,
         { withCredentials: true }
       )

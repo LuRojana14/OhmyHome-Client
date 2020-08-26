@@ -28,6 +28,7 @@ class HeaderTask extends React.Component {
                 {this.props.user.username}
               </button>
             </li>
+
             <li>
               <button className="logout-button" onClick={this.handleLogout}>
                 Logout
