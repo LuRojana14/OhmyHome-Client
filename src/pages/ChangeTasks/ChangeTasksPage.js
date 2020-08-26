@@ -5,6 +5,7 @@ import { withAuth } from "../../utils/AuthProvider";
 import { Link } from "react-router-dom";
 import "./changeTask.css";
 import { Helmet } from "react-helmet";
+import Header from "../../components/Header";
 
 class ChangeTasksPage extends Component {
   constructor(props) {
@@ -85,6 +86,7 @@ class ChangeTasksPage extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Helmet>
           <body className="body-change"></body>
         </Helmet>
@@ -100,56 +102,51 @@ class ChangeTasksPage extends Component {
               What task would you like to do?
             </p>
           </div>
-          <div className="general-container">
-            {this.getThegroup}
-            {this.getAllTasks}
-            <div className="select-task">
-              <select
-                value={this.state.selectedTask}
-                onChange={this.handleSelect}
-              >
-                {this.state.listOfTasks.map((task) => {
-                  return <option key={task._id}>{task.title}</option>;
-                })}
-              </select>
-            </div>
-            <div className="contenedor-change">
-              {/* <div className="select">
+
+          {this.getThegroup}
+          {this.getAllTasks}
+
+          <div className="select-task">
+            <select
+              value={this.state.selectedTask}
+              onChange={this.handleSelect}
+            >
+              {this.state.listOfTasks.map((task) => {
+                return <option key={task._id}>{task.title}</option>;
+              })}
+            </select>
+          </div>
+          <div className="contenedor-change">
+            {/* <div className="select">
             <p>{this.state.allUsers}</p>
           </div> */}
-              <div className="formulario">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="container-willingtodo">
-                    <p
-                      style={{
-                        textAlign: "center",
-                        fontSize: "16px",
-                      }}
-                    >
-                      What are you willing to do?
-                    </p>
-                  </div>
-                  <div className="textArea">
-                    <textarea
-                      name="mensaje"
-                      value={this.state.mensaje}
-                      onChange={(e) => this.handleChange(e)}
-                    />
-                    <input
-                      className="button-back"
-                      type="submit"
-                      value="Submit"
-                    />
-                  </div>
-                </form>
-                <div>
-                  <Link to="/profile">
-                    <button className="button-back">Back</button>
-                  </Link>
+            <form onSubmit={this.handleSubmit}>
+              <div className="general-container">
+                <div className="container-willingtodo">
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontSize: "16px",
+                    }}
+                  >
+                    What are you willing to do?
+                  </p>
                 </div>
-                {/* <input type="submit" value="send" /> */}
+                <div className="textArea">
+                  <textarea
+                    name="mensaje"
+                    value={this.state.mensaje}
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </div>
               </div>
+            </form>
+            <div className="buttons-container">
+              <button className="containersubmit-button">
+                <input className="button-sub" type="submit" value="Submit" />
+              </button>
             </div>
+            {/* <input type="submit" value="send" /> */}
           </div>
         </div>
       </div>
