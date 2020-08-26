@@ -3,6 +3,11 @@ import axios from "axios";
 import { withAuth } from "../../utils/AuthProvider";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Header from "../../components/Header";
+import { Helmet } from "react-helmet";
+
+import "./message.css";
+
 class MessagePage extends Component {
   constructor(props) {
     super(props);
@@ -86,27 +91,38 @@ class MessagePage extends Component {
     console.log("esto", this.state.listOfMessages);
     return (
       <div>
-        <h1>Messages</h1>
-        <div>
-          {this.state.listOfMessages.map((messageFilter) => (
-            <div key={messageFilter._id}>
-              {console.log("ver filtro", messageFilter)}
-              <p>Message from: {messageFilter.messageSender.username}</p>
-              <p>{}</p>
-              <p>Want to change this task:</p>
-              <p>{messageFilter.myTask.title}</p>
-              <p>for</p>
-              <p>{messageFilter.taskToChange.title}</p>
-              {/* <Button onClick={}>Accept Change</Button> */}
-              <Button onClick={() => this.deleteMessage(messageFilter._id)}>
-                Reject Change
-              </Button>
-            </div>
-          ))}
+        <Header />
+        <Helmet>
+          <body className="body-message"></body>
+        </Helmet>
+        <div className="general-container-messages">
+          <div className="message-title">
+            <h5 style={{ textAlign: "center", color: "#8A6FDF" }}>Messages</h5>
+          </div>
+          <div>
+            {this.state.listOfMessages.map((messageFilter) => (
+              <div key={messageFilter._id}>
+                {console.log("ver filtro", messageFilter)}
+                <div className="container-message-task">
+                  <p style={{ fontWeight: "bold" }}>
+                    From: {messageFilter.messageSender.username}
+                  </p>
+                  <p>Want to change: {messageFilter.myTask.title}</p>
+                  <p>By: {messageFilter.taskToChange.title}</p>
+                  <div className="containerreject-button">
+                    <button
+                      className="reject-button"
+                      onClick={() => this.deleteMessage(messageFilter._id)}
+                    >
+                      Reject
+                    </button>
+                  </div>
+                  {/* <Button onClick={}>Accept Change</Button> */}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <Link to="/profile">
-          <Button>Back to profile</Button>
-        </Link>
       </div>
     );
   }

@@ -109,11 +109,7 @@ class ChangeTasksPage extends Component {
                 onChange={this.handleSelect}
               >
                 {this.state.listOfTasks.map((task) => {
-                  return (
-                    <option key={task._id}>
-                      {task.title} - {task.user.username}
-                    </option>
-                  );
+                  return <option key={task._id}>{task.title}</option>;
                 })}
               </select>
             </div>
@@ -139,22 +135,18 @@ class ChangeTasksPage extends Component {
                       value={this.state.mensaje}
                       onChange={(e) => this.handleChange(e)}
                     />
-                    <div>
-                      <Link to="/profile">
-                        <button className="button-back">Back</button>
-                      </Link>
-                    </div>
-                    <div className="container-button-change">
-                      <button className="button-back">
-                        <input
-                          className="button-back"
-                          type="submit"
-                          value="Submit"
-                        />
-                      </button>
-                    </div>
+                    <input
+                      className="button-back"
+                      type="submit"
+                      value="Submit"
+                    />
                   </div>
                 </form>
+                <div>
+                  <Link to="/profile">
+                    <button className="button-back">Back</button>
+                  </Link>
+                </div>
                 {/* <input type="submit" value="send" /> */}
               </div>
             </div>
