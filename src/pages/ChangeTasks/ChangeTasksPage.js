@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { withAuth } from "../../utils/AuthProvider";
 import { Link } from "react-router-dom";
 import "./changeTask.css";
-import { Helmet } from "react-helmet";
 import Header from "../../components/Header";
+import { Helmet } from "react-helmet";
 
 class ChangeTasksPage extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class ChangeTasksPage extends Component {
         const filterTasks = responseFromApi.data.filter((data) => {
           console.log("AQUI RESPUESTA", responseFromApi.data);
           return data.user._id != this.props.user._id;
-          // console.log(this.props);
+          console.log(this.props);
         });
         // console.log("resuesta de api:",responseFromApi)
         this.setState({
@@ -117,9 +117,6 @@ class ChangeTasksPage extends Component {
             </select>
           </div>
           <div className="contenedor-change">
-            {/* <div className="select">
-            <p>{this.state.allUsers}</p>
-          </div> */}
             <form onSubmit={this.handleSubmit}>
               <div className="general-container">
                 <div className="container-willingtodo">
@@ -140,61 +137,17 @@ class ChangeTasksPage extends Component {
                   />
                 </div>
               </div>
+              <div className="buttons-container">
+                <button className="containersubmit-button">
+                  <input className="button-sub" type="submit" value="Submit" />
+                </button>
+              </div>
             </form>
-            <div className="buttons-container">
-              <button className="containersubmit-button">
-                <input className="button-sub" type="submit" value="Submit" />
-              </button>
-            </div>
-            {/* <input type="submit" value="send" /> */}
           </div>
         </div>
       </div>
     );
   }
 }
-// class ChangeTasksPage extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = "" ;
-//       }
-// ir probando
-//     //   getAllTasks = () => {
-//     //     axios.get(`http://localhost:4000/api/tasks`).then((responseFromApi) => {
-//     //       console.log(responseFromApi.data);
-//     //       this.setState({
-//     //         listOfTasks: responseFromApi.data,
-//     //         users: responseFromApi.data,
-//     //       });
-//     //     });
-//     //   };
-//     render() {
-//       return (
-//         <div>
-//         <h1>What would you really like to do?</h1>
-//              {/* aqui deberia estar mi ruta */}
-//          {/* <div component={TaskList}> PRUEBA </div>
-//          {this.state.task.map((e,index)=>
-//                         <div key={index}>
-//                             <option>{e.task}</option>
-//                             </div>
-//                          )} */}
-//           {/* <TaskList/>                */}
-//          <div className="select">
-//          <select>
-//           <option>Task1</option>
-//           <option>Task2</option>
-//           <option>Task3</option>
-//           <option>Task4</option>
-//           <option>Task5</option>
-//         </select>
-//         </div>
-//       </div>
-//       );
-//     }
-//   }
+
 export default withAuth(ChangeTasksPage);
-//   export default withAuth(ChangeTasksPage);
-//crear una ruta para solicitar todos los mensajes
-//perfil deberia enviar el id de la tarea por el link (params :_id)
-//empujar el id del mensaje al perfil del usuario

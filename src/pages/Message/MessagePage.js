@@ -44,35 +44,24 @@ class MessagePage extends Component {
       // })
     });
   };
-  // acceptChange = () => {
-  //   console.log("Entra");
-  //   axios.post("http://localhost:4000/message/all").then((responseFromApi) => {
-  //     // console.log("respuesta api:",responseFromApi);
-  //     const filterMessage = responseFromApi.data.filter((data) => {
-  //       // console.log('Esta es la data:', data);
-  //       return data.messageReceiver === this.props.user._id;
-  //     });
-  //     // console.log("AQUI RESPUESTA",filterMessage);
-  //     //    this.setState({
-  //     //                 messageSender: filterMessage.messageSender,
-  //     //                 myTask: filterMessage.myTask,
-  //     //                 messageText: filterMessage.messageText,
-  //     //                 taskToChange: filterMessage.taskToChange,
-  //     //                 listOfMessages: filterMessage
-  //     //             })
-  //     // this.setState({
-  //     //     listOfTasks: filterTasks,
-  //     //     selectedTask:filterTasks[0].title
-  //     // })
-  //   });
-  // };
-  // updatedListMessage = () => {
-  //     axios
-  //       .get(`http://localhost:4000/message/all`)
-  //       .then(({ data }) => {
-  //         this.setState({ listOfMessages: data });
-  //       });
-  //   };
+
+  acceptChange = (myTaskId, yourTaskId, userFromId, userToId, messageId) => {
+    console.log("Entra");
+    //DEBERIA ACTUALIZAR LAS TAREAS
+    axios
+      .post(
+        `http://localhost:4000/api/tasks/reassign`,
+        { myTaskId, yourTaskId, userFromId, userToId },
+        { withCredentials: true }
+      )
+      //BORRAR EL MENSAJE
+      .then(() => {
+        this.deleteMessage(messageId);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   deleteMessage = (messageId) => {
     axios
       .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
@@ -84,9 +73,10 @@ class MessagePage extends Component {
       });
   };
   componentDidMount() {
-    this.deleteMessage();
+    // this.deleteMessage();
     this.getAllMessages();
   }
+
   render() {
     console.log("esto", this.state.listOfMessages);
     return (
@@ -102,7 +92,6 @@ class MessagePage extends Component {
           <div>
             {this.state.listOfMessages.map((messageFilter) => (
               <div key={messageFilter._id}>
-                {console.log("ver filtro", messageFilter)}
                 <div className="container-message-task">
                   <p style={{ fontWeight: "bold" }}>
                     From: {messageFilter.messageSender.username}
@@ -110,6 +99,20 @@ class MessagePage extends Component {
                   <p>Want to change: {messageFilter.myTask.title}</p>
                   <p>By: {messageFilter.taskToChange.title}</p>
                   <div className="containerreject-button">
+                    <button
+                      className="reject-button"
+                      onClick={() =>
+                        this.acceptChange(
+                          messageFilter.myTask._id,
+                          messageFilter.taskToChange._id,
+                          messageFilter.messageSender._id,
+                          messageFilter.messageReceiver._id,
+                          messageFilter._id
+                        )
+                      }
+                    >
+                      Accept Change
+                    </button>
                     <button
                       className="reject-button"
                       onClick={() => this.deleteMessage(messageFilter._id)}
