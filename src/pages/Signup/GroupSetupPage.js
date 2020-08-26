@@ -124,7 +124,8 @@ class GroupCreation extends React.Component {
     event.preventDefault();
     const { groupName } = this.state;
     axios
-      .post("http://localhost:4000/group/creategroup", {
+      // .post("http://localhost:4000/group/creategroup", {
+      .post(`${process.env.REACT_APP_API_URI}/group/creategroup`, {
         groupName,
         userId: this.props.user._id,
       })
@@ -213,7 +214,8 @@ class GroupSelection extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:4000/group").then((response) => {
+    // axios.get("http://localhost:4000/group").then((response) => {
+    axios.get(`${process.env.REACT_APP_API_URI}/group`).then((response) => {
       this.setState({ groups: response.data });
     });
   }
@@ -222,7 +224,8 @@ class GroupSelection extends React.Component {
     event.preventDefault();
     const { selected } = this.state;
     axios
-      .post("http://localhost:4000/group/assignUser", {
+      // .post("http://localhost:4000/group/assignUser", {
+      .post(`${process.env.REACT_APP_API_URI}/group/assignUser`, {
         groupName: selected,
         userId: this.props.user._id,
       })

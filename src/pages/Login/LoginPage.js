@@ -30,7 +30,8 @@ class LoginPage extends Component {
     event.preventDefault();
     const { username, password } = this.state;
     axios
-      .post("http://localhost:4000/auth/login", {
+      // .post("http://localhost:4000/auth/login", {
+      .post(`${process.env.REACT_APP_API_URI}/auth/login`, {
         username,
         password,
       })

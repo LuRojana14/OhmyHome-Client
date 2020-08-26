@@ -21,7 +21,8 @@ class SignUpPage extends Component {
     event.preventDefault();
     const { username, password, groupName } = this.state;
     axios
-      .post("http://localhost:4000/auth/signup", {
+      // .post("http://localhost:4000/auth/signup", {
+      .post(`${process.env.REACT_APP_API_URI}/auth/signup`, {
         username,
         password,
         namegroup: groupName,
