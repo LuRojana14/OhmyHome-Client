@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { withAuth } from "../../utils/AuthProvider";
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
-import "./Task.css";
 import HeaderTask from "../../components/HeaderTask";
+import "./Task.css";
 
 class TasksPage extends React.Component {
   constructor(props) {
