@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 // import { Switch, Route } from "react-router-dom";
 import { withAuth } from "../../utils/AuthProvider";
-// import { Link } from "react-router-dom";
-// import "./changeTask.css";
+import { Link } from "react-router-dom";
+import "./changeTask.css";
+import { Helmet } from "react-helmet";
 
 class ChangeTasksPage extends Component {
   constructor(props) {
@@ -84,31 +85,79 @@ class ChangeTasksPage extends Component {
   render() {
     return (
       <div>
-        <h1>What task would you like to do?</h1>
-        {this.getAllTasks}
-        {this.getThegroup}
-        <select value={this.state.selectedTask} onChange={this.handleSelect}>
-          {this.state.listOfTasks.map((task) => {
-            return <option key={task._id}>{task.title}</option>;
-          })}
-        </select>
-        <div className="contenedor-change">
-          <div className="select">
-            <p>{this.state.allUsers}</p>
+        <Helmet>
+          <body className="body-change"></body>
+        </Helmet>
+        <div className="container-change">
+          <div className="container-titlechange">
+            <p
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: "16px",
+              }}
+            >
+              What task would you like to do?
+            </p>
           </div>
-          <div className="formulario">
-            <form onSubmit={this.handleSubmit}>
-              <p>What are you willing to do?</p>
-              <div className="textArea">
-                <textarea
-                  name="mensaje"
-                  value={this.state.mensaje}
-                  onChange={(e) => this.handleChange(e)}
-                />
-                <input type="submit" value="Submit" />
+          <div className="general-container">
+            {this.getThegroup}
+            {this.getAllTasks}
+            <div className="select-task">
+              <select
+                value={this.state.selectedTask}
+                onChange={this.handleSelect}
+              >
+                {this.state.listOfTasks.map((task) => {
+                  return (
+                    <option key={task._id}>
+                      {task.title} - {task.user.username}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div className="contenedor-change">
+              {/* <div className="select">
+            <p>{this.state.allUsers}</p>
+          </div> */}
+              <div className="formulario">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="container-willingtodo">
+                    <p
+                      style={{
+                        textAlign: "center",
+                        fontSize: "16px",
+                      }}
+                    >
+                      What are you willing to do?
+                    </p>
+                  </div>
+                  <div className="textArea">
+                    <textarea
+                      name="mensaje"
+                      value={this.state.mensaje}
+                      onChange={(e) => this.handleChange(e)}
+                    />
+                    <div>
+                      <Link to="/profile">
+                        <button className="button-back">Back</button>
+                      </Link>
+                    </div>
+                    <div className="container-button-change">
+                      <button className="button-back">
+                        <input
+                          className="button-back"
+                          type="submit"
+                          value="Submit"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                {/* <input type="submit" value="send" /> */}
               </div>
-            </form>
-            {/* <input type="submit" value="send" /> */}
+            </div>
           </div>
         </div>
       </div>

@@ -42,7 +42,9 @@ class ProfilePage extends Component {
     if (messages > 0) {
       bell = (
         <Link to="/message/all">
-          <Bell />
+          <div>
+            <Bell />
+          </div>
         </Link>
       );
     }
@@ -50,10 +52,13 @@ class ProfilePage extends Component {
       <div>
         <Header />
         <div className="container-profile">
-          <div className="hello-container">
-            <p style={{ fontWeight: "bold" }}>
-              {profile.username} {bell}
-            </p>
+          <div className="name-notifications">
+            <div className="hello-container">
+              <p style={{ fontWeight: "bold" }}>{profile.username}</p>
+            </div>
+            <div className="pru">
+              <div className="bell">{bell}</div>
+            </div>
           </div>
 
           <div className="profile-tasks">
@@ -63,9 +68,19 @@ class ProfilePage extends Component {
               {profile.tasks.map((task) => {
                 return (
                   <div className="list-profiletasks">
-                    <div className="tasks-list">
-                      {task.title}
-                      <Link to={`/change/${task._id}`}> change</Link>
+                    <div className="tasks-list">{task.title}</div>
+                    <div>
+                      <Link
+                        to={`/change/${task._id}`}
+                        style={{
+                          color: "#FF5765",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Change
+                      </Link>
                     </div>
                   </div>
                 );
