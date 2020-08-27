@@ -23,26 +23,29 @@ class MessagePage extends Component {
   }
   getAllMessages = () => {
     console.log("Entra");
-    axios.get("http://localhost:4000/message/all").then((responseFromApi) => {
-      // console.log("ESTE VIEJA:",responseFromApi);
-      const filterMessage = responseFromApi.data.filter((data) => {
-        console.log("Esta es la data:", data);
-        return data.messageReceiver._id === this.props.user._id;
+    // axios.get("http://localhost:4000/message/all").then((responseFromApi) => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/message/all`)
+      .then((responseFromApi) => {
+        // console.log("ESTE VIEJA:",responseFromApi);
+        const filterMessage = responseFromApi.data.filter((data) => {
+          console.log("Esta es la data:", data);
+          return data.messageReceiver._id === this.props.user._id;
+        });
+        console.log("AQUI RESPUESTA", filterMessage);
+        console.log("MENSAJE FILTRADO", filterMessage.messageSender);
+        this.setState({
+          // messageSender: filterMessage.messageSender,
+          // myTask: filterMessage.myTask,
+          // messageText: filterMessage.messageText,
+          // taskToChange: filterMessage.taskToChange,
+          listOfMessages: filterMessage,
+        });
+        // this.setState({
+        //     listOfTasks: filterTasks,
+        //     selectedTask:filterTasks[0].title
+        // })
       });
-      console.log("AQUI RESPUESTA", filterMessage);
-      console.log("MENSAJE FILTRADO", filterMessage.messageSender);
-      this.setState({
-        // messageSender: filterMessage.messageSender,
-        // myTask: filterMessage.myTask,
-        // messageText: filterMessage.messageText,
-        // taskToChange: filterMessage.taskToChange,
-        listOfMessages: filterMessage,
-      });
-      // this.setState({
-      //     listOfTasks: filterTasks,
-      //     selectedTask:filterTasks[0].title
-      // })
-    });
   };
 
   acceptChange = (myTaskId, yourTaskId, userFromId, userToId, messageId) => {
@@ -50,7 +53,8 @@ class MessagePage extends Component {
     //DEBERIA ACTUALIZAR LAS TAREAS
     axios
       .post(
-        `http://localhost:4000/api/tasks/reassign`,
+        // `http://localhost:4000/api/tasks/reassign`,
+        `${process.env.REACT_APP_API_URL}/api/tasks/reassign`,
         { myTaskId, yourTaskId, userFromId, userToId },
         { withCredentials: true }
       )
@@ -64,7 +68,11 @@ class MessagePage extends Component {
   };
   deleteMessage = (messageId) => {
     axios
-      .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
+      // .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
+      .delete(
+        `${process.env.REACT_APP_API_URL}/message/deletemessage/${messageId}`
+      )
+
       .then(() => {
         this.getAllMessages();
       })
