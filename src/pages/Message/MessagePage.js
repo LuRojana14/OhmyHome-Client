@@ -121,7 +121,7 @@ class MessagePage extends Component {
                       Accept Change
                     </button>
                     <button
-                      className="reject-button"
+                      className="accept-button"
                       onClick={() => this.deleteMessage(messageFilter._id)}
                     >
                       Reject
