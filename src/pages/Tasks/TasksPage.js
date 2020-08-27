@@ -128,7 +128,7 @@ class TasksPage extends React.Component {
             <span style={{ fontWeight: "bold" }}>Group: </span>
             <span>{this.state.groupName}</span>
             <div>
-              <span style={{ fontWeight: "bold" }}>Members: Pepito</span>
+              <span style={{ fontWeight: "bold" }}>Members:</span>
               <span>{this.state.users}</span>
             </div>
           </div>
