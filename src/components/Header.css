@@ -13,6 +13,7 @@
   color: #ffdb15;
   font-weight: bold;
   border: none;
+  margin-right: 15%;
 }
 
 .user-link {
@@ -40,4 +41,12 @@
   justify-content: space-around;
   padding-left: 0%;
   margin-top: 2%;
+}
+
+.icon-out {
+  font-size: 20px;
+}
+
+.icon-back {
+  font-size: 20px;
 }

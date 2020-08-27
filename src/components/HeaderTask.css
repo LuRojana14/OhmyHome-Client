@@ -13,6 +13,7 @@
   color: #ffdb15;
   font-weight: bold;
   border: none;
+  margin-right: 15%;
 }
 
 .user-link {
@@ -37,11 +38,24 @@
   list-style: none;
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-left: 0%;
   margin-top: 2%;
+  padding-right: 2%;
 }
 
 .icon-logout {
   border: 2px solid red;
+}
+
+.icon-user {
+  font-size: 20px;
+}
+
+.container-user {
+  display: flex;
+}
+
+.container-iconuser {
+  margin-right: 10%;
 }
