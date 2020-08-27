@@ -12,6 +12,7 @@
 .group-name {
   /* border: 2px solid violet; */
   padding: 2%;
+  margin-left: 2%;
 }
 
 .container-createTask {

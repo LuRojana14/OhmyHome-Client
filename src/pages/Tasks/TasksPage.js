@@ -130,7 +130,10 @@ class TasksPage extends React.Component {
         </div>
         <div className="container-tasks">
           <div className="group-name">
-            <span style={{ fontSize: "20px" }}>{this.state.groupName}</span>
+            <i class="far fa-home-lg-alt"></i>
+            <span style={{ fontSize: "20px", fontWeight: "bold" }}>
+              ohMyHome: {this.state.groupName}
+            </span>
             <div>
               {/* <span style={{ fontWeight: "bold" }}>Members</span> */}
               <span>{this.state.users}</span>
