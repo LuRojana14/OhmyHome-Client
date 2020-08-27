@@ -53,7 +53,7 @@ class TasksPage extends React.Component {
 
   deleteTask = (taskId) => {
     axios
-      .delete(`http://localhost:4000/api/tasks/${taskId}`)
+      // .delete(`http://localhost:4000/api/tasks/${taskId}`)
       .delete(`${process.env.REACT_APP_API_URL}/api/tasks/${taskId}`)
       .then(() => {
         this.refetchGroup();
