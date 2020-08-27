@@ -12,7 +12,6 @@
 .group-name {
   /* border: 2px solid violet; */
   padding: 2%;
-  margin-top: 2%;
 }
 
 .container-createTask {
@@ -25,17 +24,22 @@
   border-radius: 6%;
   background-color: #8a6fdf;
   border: 2px solid #8a6fdf;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffdb15;
   font-weight: bold;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: center; */
+  padding-left: 13px;
+  padding-right: 13px;
   /* margin-right: 0%; */
+  /* width: 100%; */
+  text-align: center;
 }
 
 .container-create {
+  /* border: 2px solid #8a6fdf; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 4%;
 }
 
@@ -47,7 +51,7 @@
 
 .task-assigned {
   /* border: 2px solid pink; */
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .task-name {
@@ -71,7 +75,7 @@
 }
 
 .photo {
-  border: 2px solid #ffdb15;
+  /* border: 2px solid #ffdb15; */
   display: flex;
   justify-content: center;
   width: 100%;
@@ -100,4 +104,20 @@
   /* color: white; */
   display: flex;
   justify-content: flex-end;
+}
+
+/* .icon {
+  border: 2px solid #ff5765;
+  width: 100px;
+  height: 100px;
+} */
+
+/* .fa-random {
+  border: 2px solid blue;
+  width: 100%;
+  height: 100%;
+} */
+
+.body-tasks {
+  background-color: #a8e10c;
 }

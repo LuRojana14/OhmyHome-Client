@@ -87,7 +87,7 @@ class MessagePage extends Component {
         </Helmet>
         <div className="general-container-messages">
           <div className="message-title">
-            <h5 style={{ textAlign: "center", color: "#8A6FDF" }}>Messages</h5>
+            {/* <h5 style={{ textAlign: "center", color: "#8A6FDF" }}>Messages</h5> */}
           </div>
           <div>
             {this.state.listOfMessages.map((messageFilter) => (
@@ -97,7 +97,8 @@ class MessagePage extends Component {
                     From: {messageFilter.messageSender.username}
                   </p>
                   <p>Want to change: {messageFilter.myTask.title}</p>
-                  <p>By: {messageFilter.taskToChange.title}</p>
+                  <p>For: {messageFilter.taskToChange.title}</p>
+                  <p>Offert: {messageFilter.messageText}</p>
                   <div className="containerreject-button">
                     <button
                       className="reject-button"
@@ -111,13 +112,13 @@ class MessagePage extends Component {
                         )
                       }
                     >
-                      Accept Change
+                      Accept
                     </button>
                     <button
-                      className="reject-button"
+                      className="accept-button"
                       onClick={() => this.deleteMessage(messageFilter._id)}
                     >
-                      Reject
+                      Are you kidding me?
                     </button>
                   </div>
                   {/* <Button onClick={}>Accept Change</Button> */}

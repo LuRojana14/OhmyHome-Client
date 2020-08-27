@@ -79,7 +79,7 @@ class ProfilePage extends Component {
                         }}
                       >
                         {" "}
-                        Change
+                        <i class="fas fa-undo-alt"></i>
                       </Link>
                     </div>
                   </div>

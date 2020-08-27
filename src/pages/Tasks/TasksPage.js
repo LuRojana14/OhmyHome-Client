@@ -6,6 +6,7 @@ import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import "./Task.css";
 import HeaderTask from "../../components/HeaderTask";
+import { Helmet } from "react-helmet";
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -115,24 +116,27 @@ class TasksPage extends React.Component {
     return (
       <div>
         <HeaderTask />
+        <Helmet>
+          <body className="body-tasks"></body>
+        </Helmet>
+
+        <div className="group-photo">
+          <img className="photo" src={this.state.group.imageUrl} alt="" />
+          <input
+            className="select-photo"
+            type="file"
+            onChange={this.fileOnchange}
+          ></input>
+        </div>
         <div className="container-tasks">
           <div className="group-name">
-            <span style={{ fontWeight: "bold" }}>Group: </span>
-            <span>{this.state.groupName}</span>
+            <span style={{ fontSize: "20px" }}>{this.state.groupName}</span>
             <div>
-              <span style={{ fontWeight: "bold" }}>Members: Pepito</span>
+              {/* <span style={{ fontWeight: "bold" }}>Members</span> */}
               <span>{this.state.users}</span>
             </div>
           </div>
           {/* <div style={{ marginTop: "50px" }}></div> */}
-          <div className="group-photo">
-            <img className="photo" src={this.state.group.imageUrl} alt="" />
-            <input
-              className="select-photo"
-              type="file"
-              onChange={this.fileOnchange}
-            ></input>
-          </div>
           <div>
             <AddTask
               groupName={group.groupName}

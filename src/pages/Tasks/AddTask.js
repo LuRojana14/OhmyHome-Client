@@ -25,7 +25,7 @@ class AddTask extends Component {
       <div>
         <div className="container-createTask">
           <Form onSubmit={this.handleFormSubmit}>
-            <p style={{ fontWeight: "bold" }}>Add a task</p>
+            {/* <p style={{ fontWeight: "bold" }}>Add a task</p> */}
             <Form.Group controlId="formBasicEmail">
               <Form.Control
                 type="text"
