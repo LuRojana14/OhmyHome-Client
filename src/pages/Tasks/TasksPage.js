@@ -6,6 +6,7 @@ import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import "./Task.css";
 import HeaderTask from "../../components/HeaderTask";
+import { Helmet } from "react-helmet";
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -33,8 +34,7 @@ class TasksPage extends React.Component {
   fetchTasks = () => {
     const { namegroup } = this.props.user;
     axios
-      // .get(`http://localhost:4000/api/tasks/${namegroup}`)
-      .get(`${process.env.REACT_APP_API_URL}/api/tasks/${namegroup}`)
+      .get(`http://localhost:4000/api/tasks/${namegroup}`)
       .then(({ data }) => {
         this.setState({ tasks: data });
       });
@@ -42,18 +42,14 @@ class TasksPage extends React.Component {
 
   refetchGroup = () => {
     const { namegroup } = this.props.user;
-    // axios.get(`http://localhost:4000/group/${namegroup}`).then(({ data }) => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/group/${namegroup}`)
-      .then(({ data }) => {
-        this.setState({ group: data });
-      });
+    axios.get(`http://localhost:4000/group/${namegroup}`).then(({ data }) => {
+      this.setState({ group: data });
+    });
   };
 
   deleteTask = (taskId) => {
     axios
-      // .delete(`http://localhost:4000/api/tasks/${taskId}`)
-      .delete(`${process.env.REACT_APP_API_URL}/api/tasks/${taskId}`)
+      .delete(`http://localhost:4000/api/tasks/${taskId}`)
       .then(() => {
         this.refetchGroup();
         this.fetchTasks();
@@ -66,8 +62,7 @@ class TasksPage extends React.Component {
   addTask = (title) => {
     const groupName = this.props.user.namegroup;
     axios
-      // .post("http://localhost:4000/api/tasks", {
-      .post(`${process.env.REACT_APP_API_URL}/api/tasks`, {
+      .post("http://localhost:4000/api/tasks", {
         title,
         namegroup: groupName,
       })
@@ -86,8 +81,7 @@ class TasksPage extends React.Component {
     const randomUser = this.state.group.users[randomUserIndex];
 
     axios
-      // .post(`http://localhost:4000/api/tasks/assign`, {
-      .post(`${process.env.REACT_APP_API_URL}/api/tasks/assign`, {
+      .post(`http://localhost:4000/api/tasks/assign`, {
         taskId,
         userId: randomUser._id,
       })
@@ -103,8 +97,7 @@ class TasksPage extends React.Component {
     uploadData.append("photo", file);
     axios
       .post(
-        // `http://localhost:4000/photo/upload/${this.state.groupName}`,
-        `${process.env.REACT_APP_API_URL}/photo/upload/${this.state.groupName}`,
+        `http://localhost:4000/photo/upload/${this.state.groupName}`,
         uploadData,
         { withCredentials: true }
       )
@@ -123,24 +116,30 @@ class TasksPage extends React.Component {
     return (
       <div>
         <HeaderTask />
+        <Helmet>
+          <body className="body-tasks"></body>
+        </Helmet>
+
+        <div className="group-photo">
+          <img className="photo" src={this.state.group.imageUrl} alt="" />
+          <input
+            className="select-photo"
+            type="file"
+            onChange={this.fileOnchange}
+          ></input>
+        </div>
         <div className="container-tasks">
           <div className="group-name">
-            <span style={{ fontWeight: "bold" }}>Name Group: </span>
-            <span>{this.state.groupName}</span>
+            {/* <i class="far fa-home-lg-alt"></i> */}
+            <span style={{ fontSize: "20px", fontWeight: "bold" }}>
+              ohMyHome: {this.state.groupName}
+            </span>
             <div>
-              {/* <span style={{ fontWeight: "bold" }}>Members:</span> */}
+              {/* <span style={{ fontWeight: "bold" }}>Members</span> */}
               <span>{this.state.users}</span>
             </div>
           </div>
           {/* <div style={{ marginTop: "50px" }}></div> */}
-          <div className="group-photo">
-            <img className="photo" src={this.state.group.imageUrl} alt="" />
-            <input
-              className="select-photo"
-              type="file"
-              onChange={this.fileOnchange}
-            ></input>
-          </div>
           <div>
             <AddTask
               groupName={group.groupName}

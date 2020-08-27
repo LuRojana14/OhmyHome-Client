@@ -23,29 +23,26 @@ class MessagePage extends Component {
   }
   getAllMessages = () => {
     console.log("Entra");
-    // axios.get("http://localhost:4000/message/all").then((responseFromApi) => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/message/all`)
-      .then((responseFromApi) => {
-        // console.log("ESTE VIEJA:",responseFromApi);
-        const filterMessage = responseFromApi.data.filter((data) => {
-          console.log("Esta es la data:", data);
-          return data.messageReceiver._id === this.props.user._id;
-        });
-        console.log("AQUI RESPUESTA", filterMessage);
-        console.log("MENSAJE FILTRADO", filterMessage.messageSender);
-        this.setState({
-          // messageSender: filterMessage.messageSender,
-          // myTask: filterMessage.myTask,
-          // messageText: filterMessage.messageText,
-          // taskToChange: filterMessage.taskToChange,
-          listOfMessages: filterMessage,
-        });
-        // this.setState({
-        //     listOfTasks: filterTasks,
-        //     selectedTask:filterTasks[0].title
-        // })
+    axios.get("http://localhost:4000/message/all").then((responseFromApi) => {
+      // console.log("ESTE VIEJA:",responseFromApi);
+      const filterMessage = responseFromApi.data.filter((data) => {
+        console.log("Esta es la data:", data);
+        return data.messageReceiver._id === this.props.user._id;
       });
+      console.log("AQUI RESPUESTA", filterMessage);
+      console.log("MENSAJE FILTRADO", filterMessage.messageSender);
+      this.setState({
+        // messageSender: filterMessage.messageSender,
+        // myTask: filterMessage.myTask,
+        // messageText: filterMessage.messageText,
+        // taskToChange: filterMessage.taskToChange,
+        listOfMessages: filterMessage,
+      });
+      // this.setState({
+      //     listOfTasks: filterTasks,
+      //     selectedTask:filterTasks[0].title
+      // })
+    });
   };
 
   acceptChange = (myTaskId, yourTaskId, userFromId, userToId, messageId) => {
@@ -53,8 +50,7 @@ class MessagePage extends Component {
     //DEBERIA ACTUALIZAR LAS TAREAS
     axios
       .post(
-        // `http://localhost:4000/api/tasks/reassign`,
-        `${process.env.REACT_APP_API_URL}/api/tasks/reassign`,
+        `http://localhost:4000/api/tasks/reassign`,
         { myTaskId, yourTaskId, userFromId, userToId },
         { withCredentials: true }
       )
@@ -68,10 +64,7 @@ class MessagePage extends Component {
   };
   deleteMessage = (messageId) => {
     axios
-      // .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
-      .delete(
-        `${process.env.REACT_APP_API_URL}/message/deletemessage/${messageId}`
-      )
+      .delete(`http://localhost:4000/message/deletemessage/${messageId}`)
       .then(() => {
         this.getAllMessages();
       })
@@ -94,7 +87,7 @@ class MessagePage extends Component {
         </Helmet>
         <div className="general-container-messages">
           <div className="message-title">
-            <h5 style={{ textAlign: "center", color: "#8A6FDF" }}>Messages</h5>
+            {/* <h5 style={{ textAlign: "center", color: "#8A6FDF" }}>Messages</h5> */}
           </div>
           <div>
             {this.state.listOfMessages.map((messageFilter) => (
@@ -104,7 +97,8 @@ class MessagePage extends Component {
                     From: {messageFilter.messageSender.username}
                   </p>
                   <p>Want to change: {messageFilter.myTask.title}</p>
-                  <p>By: {messageFilter.taskToChange.title}</p>
+                  <p>For: {messageFilter.taskToChange.title}</p>
+                  <p>Offert: {messageFilter.messageText}</p>
                   <div className="containerreject-button">
                     <button
                       className="reject-button"
@@ -118,13 +112,13 @@ class MessagePage extends Component {
                         )
                       }
                     >
-                      Accept Change
+                      Accept
                     </button>
                     <button
                       className="accept-button"
                       onClick={() => this.deleteMessage(messageFilter._id)}
                     >
-                      Reject
+                      Are you kidding me?
                     </button>
                   </div>
                   {/* <Button onClick={}>Accept Change</Button> */}

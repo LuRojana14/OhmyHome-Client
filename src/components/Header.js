@@ -22,7 +22,7 @@ class Header extends React.Component {
             <li>
               <button className="logout-button">
                 <Link style={{ color: "#FFDB15" }} to="/tasks">
-                  Back
+                  <i className="icon-back" class="fas fa-arrow-left"></i>
                 </Link>
               </button>
             </li>
@@ -30,6 +30,7 @@ class Header extends React.Component {
               {/* <img className="logout-button" src="/assets/logout.png" alt="" onClick={this.handleLogout}/> */}
               <button className="logout-button" onClick={this.handleLogout}>
                 Logout
+                {/* <i className="icon-out" class="fas fa-door-open"></i> */}
               </button>
             </li>
           </ul>

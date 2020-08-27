@@ -17,10 +17,7 @@ class ProfilePage extends Component {
   // CREATE PROFILE:
   getProfile = () => {
     axios
-      // .get(`http://localhost:4000/profile`, { withCredentials: true })
-      .get(`${process.env.REACT_APP_API_URL}/profile`, {
-        withCredentials: true,
-      })
+      .get(`http://localhost:4000/profile`, { withCredentials: true })
       .then((responseFromApi) => {
         console.log(responseFromApi.data);
         this.setState({
@@ -82,7 +79,7 @@ class ProfilePage extends Component {
                         }}
                       >
                         {" "}
-                        Change
+                        <i class="fas fa-undo-alt"></i>
                       </Link>
                     </div>
                   </div>

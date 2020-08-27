@@ -14,8 +14,7 @@ class AllUsersGroup extends Component {
   getThegroup = () => {
     console.log(this.props);
     axios
-      // .get(`http://localhost:4000/group/${this.state.groupName}`)
-      .get(`${process.env.REACT_APP_API_URL}/group/${this.state.groupName}`)
+      .get(`http://localhost:4000/group/${this.state.groupName}`)
       .then((groupFromApi) => console.log("resuesta de api2:", groupFromApi));
   };
   componentDidMount() {

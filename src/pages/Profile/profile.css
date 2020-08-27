@@ -16,7 +16,7 @@
   font-size: 14px;
   display: flex;
   padding: 15px;
-  background-color: white;
+  background-color: #a8e10c;
   border-radius: 4px;
   margin-bottom: 5%;
   width: 100%;
@@ -52,6 +52,7 @@
   /* border: 2px solid fuchsia; */
   width: 90%;
   margin-right: 2%;
+  font-size: 16px;
 }
 
 .back-container {

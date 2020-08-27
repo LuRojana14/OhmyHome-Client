@@ -124,8 +124,7 @@ class GroupCreation extends React.Component {
     event.preventDefault();
     const { groupName } = this.state;
     axios
-      // .post("http://localhost:4000/group/creategroup", {
-      .post(`${process.env.REACT_APP_API_URL}/group/creategroup`, {
+      .post("http://localhost:4000/group/creategroup", {
         groupName,
         userId: this.props.user._id,
       })
@@ -173,6 +172,36 @@ class GroupCreation extends React.Component {
           </form>
         </div>
       </div>
+
+      // <Form onSubmit={this.handleSubmit}>
+      //   <Button
+      //     variant="link"
+      //     onClick={() => this.props.history.push("/group-setup")}
+      //   >
+      //     Go back
+      //   </Button>
+      //   <div style={{ marginTop: "20px" }} />
+      //   <Form.Group>
+      //     <Form.Label>Group Name</Form.Label>
+      //     <Form.Control
+      //       name="groupName"
+      //       onChange={(event) =>
+      //         this.setState({ groupName: event.target.value })
+      //       }
+      //       type="text"
+      //       value={this.state.groupName}
+      //       placeholder="Enter group name"
+      //     />
+      //     <Form.Text className="text-muted">
+      //       Enter the name of the group you want to create
+      //     </Form.Text>
+      //   </Form.Group>
+      //   <Form.Group>
+      //     <Button variant="primary" type="submit">
+      //       Create
+      //     </Button>
+      //   </Form.Group>
+      // </Form>
     );
   }
 }

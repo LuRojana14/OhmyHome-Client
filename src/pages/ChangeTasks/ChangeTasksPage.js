@@ -23,8 +23,7 @@ class ChangeTasksPage extends Component {
   getAllTasks = () => {
     console.log(this.props);
     axios
-      // .get(`http://localhost:4000/api/tasks/${this.state.groupName}`)
-      .get(`${process.env.REACT_APP_API_URL}/api/tasks/${this.state.groupName}`)
+      .get(`http://localhost:4000/api/tasks/${this.state.groupName}`)
       .then((responseFromApi) => {
         const filterTasks = responseFromApi.data.filter((data) => {
           console.log("AQUI RESPUESTA", responseFromApi.data);
@@ -45,20 +44,15 @@ class ChangeTasksPage extends Component {
   }
   getThegroup = () => {
     console.log(this.props);
-    // axios.get(`http://localhost:4000/group/${this.state.groupName}`).then(
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/group/${this.state.groupName}`)
-      .then(
-        (groupFromApi) => {
-          const allUsers = groupFromApi.data.users.map(
-            (users) => users.username
-          );
-          this.setState({
-            allUsers: allUsers,
-          });
-        }
-        // console.log("DATOS DEL GRUPO:",groupFromApi.data.users.map(users=>users.username))
-      );
+    axios.get(`http://localhost:4000/group/${this.state.groupName}`).then(
+      (groupFromApi) => {
+        const allUsers = groupFromApi.data.users.map((users) => users.username);
+        this.setState({
+          allUsers: allUsers,
+        });
+      }
+      // console.log("DATOS DEL GRUPO:",groupFromApi.data.users.map(users=>users.username))
+    );
   };
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -82,8 +76,7 @@ class ChangeTasksPage extends Component {
     };
     //todo vendra por id, en el back tengo que validar que el modelo
     axios
-      // .post("http://localhost:4000/message/createmessage", message, {
-      .post(`${process.env.REACT_APP_API_URL}/message/createmessage`, message, {
+      .post("http://localhost:4000/message/createmessage", message, {
         withCredentials: true,
       })
       .then((userUpdated) => {

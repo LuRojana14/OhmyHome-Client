@@ -23,14 +23,14 @@ class TaskList extends Component {
     return (
       <div>
         <div className="container-alltasks">
-          <p style={{ fontWeight: "bold" }}>All Tasks</p>
+          {/* <p style={{ fontWeight: "bold" }}>All </p> */}
           {this.props.listOfTasks.map((task) => {
             return (
               <div key={task._id} style={{ padding: "8px 0" }}>
                 <div
                   className="containertask-create"
                   style={{
-                    fontSize: "14px",
+                    fontSize: "16px",
                     display: "flex",
                     alignItems: "center",
                     padding: "10px",
@@ -43,7 +43,9 @@ class TaskList extends Component {
                   <span className="prueba">{task.title}</span>
                   <div style={{ marginRight: "5px" }} />
                   <div className="task-assigned">
-                    <span>Assigned to: {this.getAssignedText(task)} </span>
+                    <span style={{ fontWeight: "bold" }}>
+                      {this.getAssignedText(task)}{" "}
+                    </span>
                   </div>
                   <div style={{ flexGrow: 1 }} />
                   <Button
@@ -52,7 +54,9 @@ class TaskList extends Component {
                     size="sm"
                     variant="link"
                   >
-                    Random
+                    <div className="icon">
+                      <i className="fa-random" class="fas fa-random"></i>
+                    </div>
                   </Button>
                   <div style={{ marginRight: "10px" }} />
 

@@ -25,13 +25,19 @@ class HeaderTask extends React.Component {
                 className="logout-button"
                 onClick={() => this.props.history.push("/profile")}
               >
-                {this.props.user.username}
+                <div className="container-user">
+                  <div className="container-iconuser">
+                    <i className="icon-user" class="far fa-user"></i>
+                  </div>
+                  <div>{this.props.user.username}</div>
+                </div>
               </button>
             </li>
 
             <li>
               <button className="logout-button" onClick={this.handleLogout}>
                 Logout
+                {/* <i className="icon-out" class="fas fa-door-open"></i> */}
               </button>
             </li>
           </ul>
